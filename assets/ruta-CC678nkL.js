@@ -1,0 +1,1 @@
+function e(e){if(!e||!e.startsWith(`/`)||e.startsWith(`//`))return e;try{let t=globalThis.location;if(!t)return e;let n=/\/assets\/[^/]*$/.test(t.pathname),r=new URL(n?`../`:`./`,t.href);return new URL(e.slice(1),r).href}catch{return e}}export{e as t};

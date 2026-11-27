@@ -1,0 +1,3406 @@
+diff --git a/package-lock.json b/package-lock.json
+index 36d6519..e4fc601 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -1,14 +1,15 @@
+ {
+   "name": "bento-pdf",
+-  "version": "2.8.11",
++  "version": "2.8.12",
+   "lockfileVersion": 3,
+   "requires": true,
+   "packages": {
+     "": {
+       "name": "bento-pdf",
+-      "version": "2.8.11",
++      "version": "2.8.12",
+       "license": "AGPL-3.0-only",
+       "dependencies": {
++        "@fontsource/barlow-condensed": "^5.3.0",
+         "@fontsource/cedarville-cursive": "^5.2.7",
+         "@fontsource/dancing-script": "^5.2.8",
+         "@fontsource/dm-sans": "^5.2.8",
+@@ -16,6 +17,7 @@
+         "@fontsource/kalam": "^5.2.8",
+         "@fontsource/lato": "^5.2.7",
+         "@fontsource/merriweather": "^5.2.11",
++        "@fontsource/public-sans": "^5.3.0",
+         "@kenjiuno/msgreader": "^1.28.0",
+         "@matbee/libreoffice-converter": "^2.5.0",
+         "@mdit/plugin-abbr": "^1.1.3",
+@@ -82,7 +84,7 @@
+         "utif": "^3.1.0",
+         "vite-plugin-static-copy": "^3.2.0",
+         "wasm-vips": "^0.0.17",
+-        "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
++        "xlsx": "0.18.5",
+         "zgapdfsigner": "^2.7.5"
+       },
+       "devDependencies": {
+@@ -909,6 +911,15 @@
+         }
+       }
+     },
++    "node_modules/@fontsource/barlow-condensed": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@fontsource/barlow-condensed/-/barlow-condensed-5.3.0.tgz",
++      "integrity": "sha512-RA7MmIx0v3eQ6Gcf74qLVLOwLB0GpPOzx+eU9iG/AmCnSJGcIWYeU8y6CEMGZ210MGwGg5CZhzLkkvyZdTTk1g==",
++      "license": "OFL-1.1",
++      "funding": {
++        "url": "https://github.com/sponsors/ayuhito"
++      }
++    },
+     "node_modules/@fontsource/cedarville-cursive": {
+       "version": "5.2.7",
+       "resolved": "https://registry.npmjs.org/@fontsource/cedarville-cursive/-/cedarville-cursive-5.2.7.tgz",
+@@ -972,6 +983,15 @@
+         "url": "https://github.com/sponsors/ayuhito"
+       }
+     },
++    "node_modules/@fontsource/public-sans": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@fontsource/public-sans/-/public-sans-5.3.0.tgz",
++      "integrity": "sha512-kjODI0S3zdv0mBYCIQ8TbBayaiqszpc2UbhJiO3bjIqVVXzcWfHSt2o3WBCLOY3juaGaQoy4MoWCcgmfI5hCuA==",
++      "license": "OFL-1.1",
++      "funding": {
++        "url": "https://github.com/sponsors/ayuhito"
++      }
++    },
+     "node_modules/@humanfs/core": {
+       "version": "0.19.2",
+       "resolved": "https://registry.npmjs.org/@humanfs/core/-/core-0.19.2.tgz",
+@@ -1935,9 +1955,6 @@
+       "cpu": [
+         "arm64"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -1954,9 +1971,6 @@
+       "cpu": [
+         "arm64"
+       ],
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -1973,9 +1987,6 @@
+       "cpu": [
+         "ppc64"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -1992,9 +2003,6 @@
+       "cpu": [
+         "s390x"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -2011,9 +2019,6 @@
+       "cpu": [
+         "x64"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -2030,9 +2035,6 @@
+       "cpu": [
+         "x64"
+       ],
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -4144,6 +4146,15 @@
+         "acorn": "^6.0.0 || ^7.0.0 || ^8.0.0"
+       }
+     },
++    "node_modules/adler-32": {
++      "version": "1.3.1",
++      "resolved": "https://registry.npmjs.org/adler-32/-/adler-32-1.3.1.tgz",
++      "integrity": "sha512-ynZ4w/nUUv5rrsR8UUGoe1VC9hZj6V5hU9Qw1HlMDJGEJw5S7TfTErWTjMys6M7vr0YWcPqs3qAr4ss0nDfP+A==",
++      "license": "Apache-2.0",
++      "engines": {
++        "node": ">=0.8"
++      }
++    },
+     "node_modules/agent-base": {
+       "version": "7.1.4",
+       "resolved": "https://registry.npmjs.org/agent-base/-/agent-base-7.1.4.tgz",
+@@ -4948,6 +4959,19 @@
+         "url": "https://github.com/sponsors/wooorm"
+       }
+     },
++    "node_modules/cfb": {
++      "version": "1.2.2",
++      "resolved": "https://registry.npmjs.org/cfb/-/cfb-1.2.2.tgz",
++      "integrity": "sha512-KfdUZsSOw19/ObEWasvBP/Ac4reZvAGauZhs6S/gqNhXhI7cKwvlH7ulj+dOEYnca4bm4SGo8C1bTAQvnTjgQA==",
++      "license": "Apache-2.0",
++      "dependencies": {
++        "adler-32": "~1.3.0",
++        "crc-32": "~1.2.0"
++      },
++      "engines": {
++        "node": ">=0.8"
++      }
++    },
+     "node_modules/chai": {
+       "version": "6.3.0",
+       "resolved": "https://registry.npmjs.org/chai/-/chai-6.3.0.tgz",
+@@ -5106,6 +5130,15 @@
+         "node": ">=0.8"
+       }
+     },
++    "node_modules/codepage": {
++      "version": "1.15.0",
++      "resolved": "https://registry.npmjs.org/codepage/-/codepage-1.15.0.tgz",
++      "integrity": "sha512-3g6NUTPd/YtuuGrhMnOMRjFc+LJw/bnMp3+0r/Wcz3IXUuCosKRJvMphm5+Q+bvTVGcJJuRvVLuYba+WojaFaA==",
++      "license": "Apache-2.0",
++      "engines": {
++        "node": ">=0.8"
++      }
++    },
+     "node_modules/color-convert": {
+       "version": "2.0.1",
+       "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",
+@@ -6795,6 +6828,15 @@
+         "url": "https://github.com/sponsors/isaacs"
+       }
+     },
++    "node_modules/frac": {
++      "version": "1.1.2",
++      "resolved": "https://registry.npmjs.org/frac/-/frac-1.1.2.tgz",
++      "integrity": "sha512-w/XBfkibaTl3YDqASwfDUqkna4Z2p9cFSr1aHDt0WoMTECnRfBOv2WArlZILlqgWlmdIlALXGpM2AOhEk5W3IA==",
++      "license": "Apache-2.0",
++      "engines": {
++        "node": ">=0.8"
++      }
++    },
+     "node_modules/fsevents": {
+       "version": "2.3.3",
+       "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+@@ -10662,6 +10704,18 @@
+         "node": ">=0.10.0"
+       }
+     },
++    "node_modules/ssf": {
++      "version": "0.11.2",
++      "resolved": "https://registry.npmjs.org/ssf/-/ssf-0.11.2.tgz",
++      "integrity": "sha512-+idbmIXoYET47hH+d7dfm2epdOMUDjqcB4648sTZ+t2JwoyBFL/insLfB/racrDmsKB3diwsDA696pZMieAC5g==",
++      "license": "Apache-2.0",
++      "dependencies": {
++        "frac": "~1.1.2"
++      },
++      "engines": {
++        "node": ">=0.8"
++      }
++    },
+     "node_modules/stackback": {
+       "version": "0.0.2",
+       "resolved": "https://registry.npmjs.org/stackback/-/stackback-0.0.2.tgz",
+@@ -12820,6 +12874,24 @@
+         "node": ">=8"
+       }
+     },
++    "node_modules/wmf": {
++      "version": "1.0.2",
++      "resolved": "https://registry.npmjs.org/wmf/-/wmf-1.0.2.tgz",
++      "integrity": "sha512-/p9K7bEh0Dj6WbXg4JG0xvLQmIadrner1bi45VMJTfnbVHsc7yIajZyoSoK60/dtVBs12Fm6WkUI5/3WAVsNMw==",
++      "license": "Apache-2.0",
++      "engines": {
++        "node": ">=0.8"
++      }
++    },
++    "node_modules/word": {
++      "version": "0.3.0",
++      "resolved": "https://registry.npmjs.org/word/-/word-0.3.0.tgz",
++      "integrity": "sha512-OELeY0Q61OXpdUfTp+oweA/vtLVg5VDOXh+3he3PNzLGG/y0oylSOC1xRVj0+l4vQ3tj/bB1HVHv1ocXkQceFA==",
++      "license": "Apache-2.0",
++      "engines": {
++        "node": ">=0.8"
++      }
++    },
+     "node_modules/word-wrap": {
+       "version": "1.2.5",
+       "resolved": "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.5.tgz",
+@@ -12941,10 +13013,19 @@
+       }
+     },
+     "node_modules/xlsx": {
+-      "version": "0.20.3",
+-      "resolved": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+-      "integrity": "sha512-oLDq3jw7AcLqKWH2AhCpVTZl8mf6X2YReP+Neh0SJUzV/BdZYjth94tG5toiMB1PPrYtxOCfaoUCkvtuH+3AJA==",
++      "version": "0.18.5",
++      "resolved": "https://registry.npmjs.org/xlsx/-/xlsx-0.18.5.tgz",
++      "integrity": "sha512-dmg3LCjBPHZnQp5/F/+nnTa+miPJxUXB6vtk42YjBBKayDNagxGEeIdWApkYPOf3Z3pm3k62Knjzp7lMeTEtFQ==",
+       "license": "Apache-2.0",
++      "dependencies": {
++        "adler-32": "~1.3.0",
++        "cfb": "~1.2.1",
++        "codepage": "~1.15.0",
++        "crc-32": "~1.2.1",
++        "ssf": "~0.11.2",
++        "wmf": "~1.0.1",
++        "word": "~0.3.0"
++      },
+       "bin": {
+         "xlsx": "bin/xlsx.njs"
+       },
+diff --git a/package.json b/package.json
+index 713dc74..16ab1c7 100644
+--- a/package.json
++++ b/package.json
+@@ -73,6 +73,7 @@
+     "vue": "^3.5.29"
+   },
+   "dependencies": {
++    "@fontsource/barlow-condensed": "^5.3.0",
+     "@fontsource/cedarville-cursive": "^5.2.7",
+     "@fontsource/dancing-script": "^5.2.8",
+     "@fontsource/dm-sans": "^5.2.8",
+@@ -80,6 +81,7 @@
+     "@fontsource/kalam": "^5.2.8",
+     "@fontsource/lato": "^5.2.7",
+     "@fontsource/merriweather": "^5.2.11",
++    "@fontsource/public-sans": "^5.3.0",
+     "@kenjiuno/msgreader": "^1.28.0",
+     "@matbee/libreoffice-converter": "^2.5.0",
+     "@mdit/plugin-abbr": "^1.1.3",
+@@ -146,7 +148,7 @@
+     "utif": "^3.1.0",
+     "vite-plugin-static-copy": "^3.2.0",
+     "wasm-vips": "^0.0.17",
+-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
++    "xlsx": "0.18.5",
+     "zgapdfsigner": "^2.7.5"
+   },
+   "lint-staged": {
+diff --git a/public/locales/es/common.json b/public/locales/es/common.json
+index 19bfed2..74e7525 100644
+--- a/public/locales/es/common.json
++++ b/public/locales/es/common.json
+@@ -33,11 +33,11 @@
+     "bentoPdf": "BentoPDF?",
+     "noSignup": {
+       "title": "Sin Registro",
+-      "description": "Comienza al instante, sin cuentas ni correos electrónicos."
++      "description": "Comience al instante, sin cuentas ni correos electrónicos."
+     },
+     "noUploads": {
+       "title": "Sin Cargas",
+-      "description": "100% del lado del cliente, tus archivos nunca salen de tu dispositivo."
++      "description": "100% del lado del cliente, sus archivos nunca salen de su dispositivo."
+     },
+     "foreverFree": {
+       "title": "Gratis para Siempre",
+@@ -45,7 +45,7 @@
+     },
+     "noLimits": {
+       "title": "Sin Límites",
+-      "description": "Usa tanto como quieras, sin límites ocultos."
++      "description": "Use tanto como quieras, sin límites ocultos."
+     },
+     "batchProcessing": {
+       "title": "Procesamiento por Lotes",
+@@ -57,18 +57,18 @@
+     }
+   },
+   "tools": {
+-    "title": "Comienza con",
++    "title": "Comience con",
+     "toolsLabel": "Herramientas",
+-    "subtitle": "Haz clic en una herramienta para abrir el cargador de archivos",
++    "subtitle": "Haga clic en una herramienta para abrir el cargador de archivos",
+     "searchPlaceholder": "Buscar una herramienta (ej., 'dividir', 'organizar'...)",
+     "backToTools": "Volver a Herramientas",
+     "firstLoadNotice": "La primera carga toma un momento mientras descargamos nuestro motor de conversión. Después de eso, todas las cargas serán instantáneas."
+   },
+   "upload": {
+-    "clickToSelect": "Haz clic para seleccionar un archivo",
+-    "orDragAndDrop": "o arrastra y suelta",
++    "clickToSelect": "Haga clic para seleccionar un archivo",
++    "orDragAndDrop": "o arrastre y suelte",
+     "pdfOrImages": "PDFs o Imágenes",
+-    "filesNeverLeave": "Tus archivos nunca salen de tu dispositivo.",
++    "filesNeverLeave": "Sus archivos nunca salen de su dispositivo.",
+     "addMore": "Agregar Más Archivos",
+     "clearAll": "Limpiar Todo",
+     "clearFiles": "Borrar archivos",
+@@ -102,11 +102,11 @@
+   "howItWorks": {
+     "title": "Cómo funciona",
+     "step1Title": "Subir archivo",
+-    "step1": "Haz clic o arrastra tu archivo aquí",
++    "step1": "Haga clic o arrastre su archivo aquí",
+     "step2Title": "Procesar",
+-    "step2": "Haz clic en el botón de procesar",
++    "step2": "Haga clic en el botón de procesar",
+     "step3Title": "Descargar",
+-    "step3": "Guarda tu archivo procesado al instante"
++    "step3": "Guarde su archivo procesado al instante"
+   },
+   "relatedTools": {
+     "title": "Herramientas PDF relacionadas"
+@@ -129,30 +129,30 @@
+     "preferences": "Preferencias",
+     "displayPreferences": "Preferencias de Visualización",
+     "searchShortcuts": "Buscar atajos...",
+-    "shortcutsInfo": "Mantén presionadas las teclas para establecer un atajo. Los cambios se guardan automáticamente.",
++    "shortcutsInfo": "Mantenga presionadas las teclas para establecer un atajo. Los cambios se guardan automáticamente.",
+     "shortcutsWarning": "⚠️ Evita los atajos comunes del navegador (Cmd/Ctrl+W, Cmd/Ctrl+T, Cmd/Ctrl+N, etc.) ya que pueden no funcionar de manera confiable.",
+     "import": "Importar",
+     "export": "Exportar",
+     "resetToDefaults": "Restaurar Valores Predeterminados",
+     "fullWidthMode": "Modo de Ancho Completo",
+-    "fullWidthDescription": "Usa el ancho completo de la pantalla para todas las herramientas en lugar de un contenedor centrado",
++    "fullWidthDescription": "Use el ancho completo de la pantalla para todas las herramientas en lugar de un contenedor centrado",
+     "compactMode": "Modo compacto",
+     "compactModeDescription": "Mostrar herramientas como lista compacta en lugar de tarjetas",
+     "advancedSettings": "Configuración avanzada",
+     "advancedSettingsDescription": "Configurar módulos de procesamiento externos (PyMuPDF, Ghostscript, CoherentPDF)",
+     "settingsAutoSaved": "La configuración se guarda automáticamente",
+-    "clickToSet": "Haz clic para establecer",
++    "clickToSet": "Haga clic para establecer",
+     "pressKeys": "Presiona teclas...",
+     "warnings": {
+       "alreadyInUse": "Atajo Ya en Uso",
+       "assignedTo": "ya está asignado a:",
+-      "chooseDifferent": "Por favor elige un atajo diferente.",
++      "chooseDifferent": "Por favor elija un atajo diferente.",
+       "reserved": "Advertencia de Atajo Reservado",
+       "commonlyUsed": "se usa comúnmente para:",
+       "unreliable": "Este atajo puede no funcionar de manera confiable o puede entrar en conflicto con el comportamiento del navegador/sistema.",
+-      "useAnyway": "¿Quieres usarlo de todos modos?",
++      "useAnyway": "¿Quiere usarlo de todos modos?",
+       "resetTitle": "Restablecer Atajos",
+-      "resetMessage": "¿Estás seguro de que quieres restablecer todos los atajos a los valores predeterminados?<br><br>Esta acción no se puede deshacer.",
++      "resetMessage": "¿Estás seguro de que quiere restablecer todos los atajos a los valores predeterminados?<br><br>Esta acción no se puede deshacer.",
+       "importSuccessTitle": "Importación Exitosa",
+       "importSuccessMessage": "¡Atajos importados exitosamente!",
+       "importFailTitle": "Importación Fallida",
+@@ -165,22 +165,22 @@
+     "proceed": "Continuar"
+   },
+   "compliance": {
+-    "title": "Tus datos nunca salen de tu dispositivo",
++    "title": "Sus datos nunca salen de su dispositivo",
+     "weKeep": "Mantenemos",
+-    "yourInfoSafe": "tu información segura",
++    "yourInfoSafe": "su información segura",
+     "byFollowingStandards": "siguiendo estándares de seguridad globales.",
+-    "processingLocal": "Todo el procesamiento ocurre localmente en tu dispositivo.",
++    "processingLocal": "Todo el procesamiento ocurre localmente en su dispositivo.",
+     "gdpr": {
+       "title": "Cumplimiento GDPR",
+       "description": "Protege los datos personales y la privacidad de las personas dentro de la Unión Europea."
+     },
+     "ccpa": {
+       "title": "Cumplimiento CCPA",
+-      "description": "Otorga a los residentes de California derechos sobre cómo se recopila, usa y comparte su información personal."
++      "description": "Otorga a los residentes de California derechos sobre cómo se recopila, use y comparte su información personal."
+     },
+     "hipaa": {
+       "title": "Cumplimiento HIPAA",
+-      "description": "Establece salvaguardas para el manejo de información de salud sensible en el sistema de atención médica de Estados Unidos."
++      "description": "Establezca salvaguardas para el manejo de información de salud sensible en el sistema de atención médica de Estados Unidos."
+     }
+   },
+   "faq": {
+@@ -193,27 +193,27 @@
+     },
+     "areFilesSecure": {
+       "question": "¿Mis archivos están seguros? ¿Dónde se procesan?",
+-      "answer": "Tus archivos están lo más seguros posible porque nunca salen de tu computadora. Todo el procesamiento ocurre directamente en tu navegador web (del lado del cliente). Nunca cargamos tus archivos a un servidor, por lo que mantienes total privacidad y control sobre tus documentos."
++      "answer": "Sus archivos están lo más seguros posible porque nunca salen de su computadora. Todo el procesamiento ocurre directamente en su navegador web (del lado del cliente). Nunca cargamos sus archivos a un servidor, por lo que mantienes total privacidad y control sobre sus documentos."
+     },
+     "platforms": {
+       "question": "¿Funciona en Mac, Windows y Móvil?",
+-      "answer": "¡Sí! Dado que BentoPDF se ejecuta completamente en tu navegador, funciona en cualquier sistema operativo con un navegador web moderno, incluyendo Windows, macOS, Linux, iOS y Android."
++      "answer": "¡Sí! Dado que BentoPDF se ejecuta completamente en su navegador, funciona en cualquier sistema operativo con un navegador web moderno, incluyendo Windows, macOS, Linux, iOS y Android."
+     },
+     "gdprCompliant": {
+       "question": "¿BentoPDF cumple con GDPR?",
+-      "answer": "Sí. BentoPDF cumple completamente con GDPR. Dado que todo el procesamiento de archivos ocurre localmente en tu navegador y nunca recopilamos ni transmitimos tus archivos a ningún servidor, no tenemos acceso a tus datos. Esto garantiza que siempre tengas el control de tus documentos."
++      "answer": "Sí. BentoPDF cumple completamente con GDPR. Dado que todo el procesamiento de archivos ocurre localmente en su navegador y nunca recopilamos ni transmitimos sus archivos a ningún servidor, no tenemos acceso a sus datos. Esto garantiza que siempre tengas el control de sus documentos."
+     },
+     "dataStorage": {
+       "question": "¿Almacenan o rastrean alguno de mis archivos?",
+-      "answer": "No. Nunca almacenamos, rastreamos ni registramos tus archivos. Todo lo que haces en BentoPDF ocurre en la memoria de tu navegador y desaparece una vez que cierras la página. No hay cargas, no hay registros de historial y no hay servidores involucrados."
++      "answer": "No. Nunca almacenamos, rastreamos ni registramos sus archivos. Todo lo que haces en BentoPDF ocurre en la memoria de su navegador y desaparece una vez que cierras la página. No hay cargas, no hay registros de historial y no hay servidores involucrados."
+     },
+     "different": {
+       "question": "¿Qué hace que BentoPDF sea diferente de otras herramientas PDF?",
+-      "answer": "La mayoría de las herramientas PDF cargan tus archivos a un servidor para procesarlos. BentoPDF nunca hace eso. Utilizamos tecnología web moderna y segura para procesar tus archivos directamente en tu navegador. Esto significa un rendimiento más rápido, mayor privacidad y total tranquilidad."
++      "answer": "La mayoría de las herramientas PDF cargan sus archivos a un servidor para procesarlos. BentoPDF nunca hace eso. Utilizamos tecnología web moderna y segura para procesar sus archivos directamente en su navegador. Esto significa un rendimiento más rápido, mayor privacidad y total tranquilidad."
+     },
+     "browserBased": {
+       "question": "¿Cómo me mantiene seguro el procesamiento basado en navegador?",
+-      "answer": "Al ejecutarse completamente dentro de tu navegador, BentoPDF garantiza que tus archivos nunca salgan de tu dispositivo. Esto elimina los riesgos de hackeos de servidores, violaciones de datos o accesos no autorizados. Tus archivos siguen siendo tuyos, siempre."
++      "answer": "Al ejecutarse completamente dentro de su navegador, BentoPDF garantiza que sus archivos nunca salgan de su dispositivo. Esto elimina los riesgos de hackeos de servidores, violaciones de datos o accesos no autorizados. Sus archivos siguen siendo tuyos, siempre."
+     },
+     "analytics": {
+       "question": "¿Usan cookies o análisis para rastrearme?",
+@@ -250,18 +250,18 @@
+   },
+   "merge": {
+     "title": "Fusionar PDFs",
+-    "description": "Combina archivos completos o selecciona páginas específicas para fusionar en un nuevo documento.",
++    "description": "Combina archivos completos o seleccione páginas específicas para fusionar en un nuevo documento.",
+     "fileMode": "Modo Archivo",
+     "pageMode": "Modo Página",
+     "howItWorks": "Cómo funciona:",
+     "fileModeInstructions": [
+-      "Haz clic y arrastra el ícono para cambiar el orden de los archivos.",
+-      "En el cuadro \"Páginas\" para cada archivo, puedes especificar rangos (ej., \"1-3, 5\") para fusionar solo esas páginas.",
++      "Haga clic y arrastre el ícono para cambiar el orden de los archivos.",
++      "En el cuadro \"Páginas\" para cada archivo, puede especificar rangos (ej., \"1-3, 5\") para fusionar solo esas páginas.",
+       "Deja el cuadro \"Páginas\" en blanco para incluir todas las páginas de ese archivo."
+     ],
+     "pageModeInstructions": [
+-      "Todas las páginas de tus PDFs cargados se muestran a continuación.",
+-      "Simplemente arrastra y suelta las miniaturas de páginas individuales para crear el orden exacto que deseas para tu nuevo archivo."
++      "Todas las páginas de sus PDFs cargados se muestran a continuación.",
++      "Simplemente arrastre y suelte las miniaturas de páginas individuales para crear el orden exacto que deseas para su nuevo archivo."
+     ],
+     "mergePdfs": "Fusionar PDFs"
+   },
+@@ -295,18 +295,18 @@
+     "mission": {
+       "title": "Nuestra",
+       "titleDim": "Misión",
+-      "description": "Proporcionar la caja de herramientas PDF más completa que respete tu privacidad y nunca pida pago. Creemos que las herramientas de documentos esenciales deben ser accesibles para todos, en todas partes, sin barreras."
++      "description": "Proporcionar la caja de herramientas PDF más completa que respete su privacidad y nunca pida pago. Creemos que las herramientas de documentos esenciales deben ser accesibles para todos, en todas partes, sin barreras."
+     },
+     "philosophy": {
+       "label": "Nuestra Filosofía Central",
+       "title": "Privacidad Primero. Siempre.",
+-      "description": "En una era donde los datos son una mercancía, adoptamos un enfoque diferente. Todo el procesamiento de las herramientas de BentoPDF ocurre localmente en tu navegador. Esto significa que tus archivos nunca tocan nuestros servidores, nunca vemos tus documentos y no rastreamos lo que haces. Tus documentos permanecen completa e inequívocamente privados. No es solo una característica; es nuestra base."
++      "description": "En una era donde los datos son una mercancía, adoptamos un enfoque diferente. Todo el procesamiento de las herramientas de BentoPDF ocurre localmente en su navegador. Esto significa que sus archivos nunca tocan nuestros servidores, nunca vemos sus documentos y no rastreamos lo que haces. Sus documentos permanecen completa e inequívocamente privados. No es solo una característica; es nuestra base."
+     },
+     "whyBentopdf": {
+       "title": "Por qué",
+       "speed": {
+         "title": "Diseñado para la Velocidad",
+-        "description": "Sin esperar cargas o descargas a un servidor. Al procesar archivos directamente en tu navegador usando tecnologías web modernas como WebAssembly, ofrecemos una velocidad incomparable para todas nuestras herramientas."
++        "description": "Sin esperar cargas o descargas a un servidor. Al procesar archivos directamente en su navegador usando tecnologías web modernas como WebAssembly, ofrecemos una velocidad incomparable para todas nuestras herramientas."
+       },
+       "free": {
+         "title": "Completamente Gratis",
+@@ -314,7 +314,7 @@
+       },
+       "noAccount": {
+         "title": "No Requiere Cuenta",
+-        "description": "Comienza a usar cualquier herramienta de inmediato. No necesitamos tu correo electrónico, una contraseña o cualquier información personal. Tu flujo de trabajo debe ser sin fricciones y anónimo."
++        "description": "Comience a usar cualquier herramienta de inmediato. No necesitamos su correo electrónico, una contraseña o cualquier información personal. Su flujo de trabajo debe ser sin fricciones y anónimo."
+       },
+       "openSource": {
+         "title": "Espíritu de Código Abierto",
+@@ -330,11 +330,11 @@
+   "contact": {
+     "title": "Ponte en Contacto",
+     "subtitle": "Nos encantaría saber de ti. Ya sea que tengas una pregunta, comentario o solicitud de función, no dudes en comunicarte.",
+-    "email": "Puedes contactarnos directamente por correo electrónico en:"
++    "email": "Puede contactarnos directamente por correo electrónico en:"
+   },
+   "licensing": {
+     "title": "Licencias para",
+-    "subtitle": "Elige la licencia que se ajuste a tus necesidades."
++    "subtitle": "Elija la licencia que se ajuste a sus necesidades."
+   },
+   "multiTool": {
+     "uploadPdfs": "Cargar PDFs",
+@@ -359,7 +359,7 @@
+     "downloadSelected": "Descargar Seleccionados",
+     "exportPdf": "Exportar PDF",
+     "uploadPdfFiles": "Seleccionar archivos PDF o imágenes",
+-    "dragAndDrop": "Arrastra y suelta archivos PDF o imágenes aquí, o haz clic para seleccionar",
++    "dragAndDrop": "Arrastre y suelte archivos PDF o imágenes aquí, o haga clic para seleccionar",
+     "selectFiles": "Seleccionar Archivos",
+     "dropToAdd": "Suelta archivos PDF o imágenes para añadir",
+     "convertingImages": "Convirtiendo imágenes a PDF...",
+@@ -371,10 +371,10 @@
+       "insertPdf": "Insertar PDF después de esta página",
+       "toggleSplit": "Alternar división después de esta página"
+     },
+-    "pleaseWait": "Por Favor Espera",
+-    "pagesRendering": "Las páginas aún se están renderizando. Por favor espera...",
++    "pleaseWait": "Por Favor Espere",
++    "pagesRendering": "Las páginas aún se están renderizando. Por favor espere...",
+     "noPagesSelected": "No Se Seleccionaron Páginas",
+-    "selectOnePage": "Por favor selecciona al menos una página para descargar.",
++    "selectOnePage": "Por favor seleccione al menos una página para descargar.",
+     "noPages": "Sin Páginas",
+     "noPagesToExport": "No hay páginas para exportar.",
+     "renderingTitle": "Renderizando vistas previas de páginas",
+@@ -384,12 +384,12 @@
+   },
+   "simpleMode": {
+     "title": "Herramientas PDF",
+-    "subtitle": "Selecciona una herramienta para comenzar"
++    "subtitle": "Seleccione una herramienta para comenzar"
+   },
+   "disabledTool": {
+     "title": "Herramienta no disponible",
+     "heading": "Esta herramienta ha sido desactivada",
+-    "message": "Esta herramienta no está disponible en tu instalación. Contacta con tu administrador para obtener más información.",
++    "message": "Esta herramienta no está disponible en su instalación. Contacta con su administrador para obtener más información.",
+     "backHome": "Volver al inicio"
+   }
+-}
++}
+\ No newline at end of file
+diff --git a/public/locales/es/tools.json b/public/locales/es/tools.json
+index 7b0cada..196a95b 100644
+--- a/public/locales/es/tools.json
++++ b/public/locales/es/tools.json
+@@ -15,7 +15,7 @@
+     "add": "Añadir a favoritos",
+     "remove": "Quitar de favoritos",
+     "hintLabel": "Consejo",
+-    "hint": "Mantén pulsada una herramienta para añadirla a tus favoritos.",
++    "hint": "Mantenga pulsada una herramienta para añadirla a sus favoritos.",
+     "hideHint": "Ocultar consejo"
+   },
+   "convertToPdf": "Convertir a PDF",
+@@ -27,7 +27,7 @@
+     "name": "Fusionar PDF",
+     "subtitle": "Combina múltiples PDFs en un solo archivo. Preserva Marcadores.",
+     "retainPageLabels": "Conservar las etiquetas de página originales de cada archivo",
+-    "retainPageLabelsHint": "Desactivado (predeterminado): el PDF combinado usa numeración natural 1–N. Activado: se conservan las etiquetas de página originales de cada archivo (puede producir etiquetas duplicadas).",
++    "retainPageLabelsHint": "Desactivado (predeterminado): el PDF combinado use numeración natural 1–N. Activado: se conservan las etiquetas de página originales de cada archivo (puede producir etiquetas duplicadas).",
+     "removeDuplicateFonts": "Eliminar fuentes duplicadas",
+     "alert": {
+       "thumbnailError": "No se pudieron generar las miniaturas de las páginas",
+@@ -36,7 +36,7 @@
+       "mergeFailed": "Error al combinar los PDFs.",
+       "mergeError": "Error al combinar los PDFs. Comprueba que todos los archivos sean válidos y no estén protegidos con contraseña.",
+       "workerError": "Se produjo un error inesperado durante la combinación.",
+-      "loadError": "No se pudieron cargar uno o más archivos PDF"
++      "loadError": "No se pudo abrir uno de los archivos: puede que no sea un PDF o que esté dañado. Vuelva a intentarlo sin ese archivo."
+     },
+     "loader": {
+       "renderingPreviews": "Generando vistas previas de las páginas...",
+@@ -50,7 +50,7 @@
+   },
+   "compressPdf": {
+     "name": "Comprimir PDF",
+-    "subtitle": "Reduce el tamaño de archivo de tu PDF."
++    "subtitle": "Reduce el tamaño de archivo de su PDF."
+   },
+   "pdfEditor": {
+     "name": "Editor PDF",
+@@ -58,18 +58,18 @@
+   },
+   "editPdfText": {
+     "name": "Editar texto PDF",
+-    "subtitle": "Haz clic en cualquier párrafo y edítalo directamente con reajuste de texto en vivo, fuentes y estilos.",
++    "subtitle": "Haga clic en cualquier párrafo y edítalo directamente con reajuste de texto en vivo, fuentes y estilos.",
+     "saved": "¡PDF guardado correctamente! ({{size}} KB)",
+     "failedToLoad": "No se pudo cargar el editor de texto PDF.",
+     "loadingFonts": "Cargando fuentes...",
+-    "fontsUnavailable": "No se pudo descargar una fuente necesaria para algunos caracteres. Comprueba tu conexión e inténtalo de nuevo; de lo contrario, es posible que esos caracteres no se vean correctamente en el PDF guardado.",
++    "fontsUnavailable": "No se pudo descargar una fuente necesaria para algunos caracteres. Comprueba su conexión e inténtalo de nuevo; de lo contrario, es posible que esos caracteres no se vean correctamente en el PDF guardado.",
+     "howToUpload": "Subir PDF",
+-    "howToClick": "Haz clic en un párrafo",
+-    "howToRestyle": "Cambia el estilo de todo",
++    "howToClick": "Haga clic en un párrafo",
++    "howToRestyle": "Cambie el estilo de todo",
+     "relatedPdfEditor": "Anota y resalta PDF",
+-    "relatedSignPdf": "Dibuja, escribe o sube una firma",
++    "relatedSignPdf": "Dibuje, escriba o suba una firma",
+     "relatedWatermark": "Estampa texto o imágenes",
+-    "relatedStamps": "Coloca sellos en las páginas",
++    "relatedStamps": "Coloque sellos en las páginas",
+     "relatedCompress": "Reduce el tamaño del archivo",
+     "relatedOrganizeName": "Organizar PDF",
+     "relatedOrganize": "Reordena y gestiona páginas",
+@@ -86,7 +86,7 @@
+     "next": "Siguiente",
+     "replace": "Reemplazar",
+     "replaceAll": "Reemplazar todo",
+-    "emptyState": "Abre un PDF para editar su texto, imágenes y formas.",
++    "emptyState": "Abra un PDF para editar su texto, imágenes y formas.",
+     "choosePdf": "Elegir un PDF…",
+     "font": "Fuente",
+     "systemFonts": "Fuentes del sistema",
+@@ -107,7 +107,7 @@
+     "tipFileDetails": "Detalles del archivo",
+     "tipEditExistingContent": "Editar contenido existente",
+     "tipWhatTheEditToolTouchesNarrowTheScopeOnBus": "Qué modifica la herramienta Editar: limita el alcance en páginas con mucho contenido",
+-    "tipClickThePageToAddATextBox": "Haz clic en la página para añadir un cuadro de texto",
++    "tipClickThePageToAddATextBox": "Haga clic en la página para añadir un cuadro de texto",
+     "tipSpellCheckLanguage": "Idioma del corrector ortográfico",
+     "tipFindAndReplace": "Buscar y reemplazar",
+     "tipAddAnImage": "Añadir una imagen",
+@@ -168,7 +168,7 @@
+     "tipZoomIn": "Acercar",
+     "tipFitPage": "Ajustar página",
+     "tipPreviousPage": "Página anterior",
+-    "tipTypeAPageNumberAndPressEnter": "Escribe un número de página y pulsa Intro",
++    "tipTypeAPageNumberAndPressEnter": "Escriba un número de página y pulsa Intro",
+     "tipNextPage": "Página siguiente",
+     "tipDocumentProperties": "Propiedades del documento",
+     "tipHideBar": "Ocultar barra",
+@@ -176,19 +176,19 @@
+   },
+   "jpgToPdf": {
+     "name": "JPG a PDF",
+-    "subtitle": "Crea un PDF desde imágenes JPG, JPEG y JPEG2000 (JP2/JPX)."
++    "subtitle": "Cree un PDF desde imágenes JPG, JPEG y JPEG2000 (JP2/JPX)."
+   },
+   "signPdf": {
+     "name": "Firmar PDF",
+-    "subtitle": "Dibuja, escribe o carga tu firma."
++    "subtitle": "Dibuje, escriba o cargue su firma."
+   },
+   "cropPdf": {
+     "name": "Recortar PDF",
+-    "subtitle": "Recorta los márgenes de cada página en tu PDF."
++    "subtitle": "Recorta los márgenes de cada página en su PDF."
+   },
+   "extractPages": {
+     "name": "Extraer páginas",
+-    "subtitle": "Guarda una selección de páginas como nuevos archivos."
++    "subtitle": "Guarde una selección de páginas como nuevos archivos."
+   },
+   "duplicateOrganize": {
+     "name": "Duplicar y organizar",
+@@ -197,18 +197,18 @@
+   },
+   "deletePages": {
+     "name": "Eliminar páginas",
+-    "subtitle": "Elimina páginas específicas de tu documento."
++    "subtitle": "Elimine páginas específicas de su documento."
+   },
+   "editBookmarks": {
+     "name": "Editar marcadores",
+-    "subtitle": "Agrega, edita, importa, elimina y extrae marcadores PDF.",
++    "subtitle": "Agregue, edita, importa, elimina y extrae marcadores PDF.",
+     "autoExtractExisting": "Extraer automáticamente marcadores existentes",
+     "importSectionTitle": "O importar marcadores",
+     "csvFormat": "Formato CSV: título,página,nivel",
+     "jsonFormat": "Formato JSON",
+-    "uploadCsvAction": "Haz clic para subir CSV",
+-    "uploadJsonAction": "Haz clic para subir JSON",
+-    "orDragHere": "o arrastra aquí"
++    "uploadCsvAction": "Haga clic para subir CSV",
++    "uploadJsonAction": "Haga clic para subir JSON",
++    "orDragHere": "o arrastre aquí"
+   },
+   "tableOfContents": {
+     "name": "Índice",
+@@ -218,7 +218,7 @@
+     "fontFamily": "Familia tipográfica",
+     "addBookmark": "Añadir marcador para la página de TDC",
+     "generateButton": "Generar tabla de contenidos",
+-    "selectPdfFirst": "Por favor selecciona primero un archivo PDF.",
++    "selectPdfFirst": "Por favor seleccione primero un archivo PDF.",
+     "statusReadingFileMainThread": "Leyendo archivo (Hilo principal)...",
+     "statusGenerating": "Generando tabla de contenidos...",
+     "errorReadingFileWithMessage": "Error al leer archivo: {{message}}",
+@@ -228,7 +228,7 @@
+   },
+   "pageNumbers": {
+     "name": "Números de página",
+-    "subtitle": "Inserta números de página en tu documento."
++    "subtitle": "Inserta números de página en su documento."
+   },
+   "addPageLabels": {
+     "name": "Agregar etiquetas de página",
+@@ -236,32 +236,32 @@
+     "uploadHint": "Archivo PDF",
+     "howLabelsWorkTitle": "Cómo funcionan las etiquetas",
+     "howLabelsWorkStep1": "Deja vacío el rango de páginas para etiquetar todas las páginas.",
+-    "howLabelsWorkStep2": "Usa estilos como números romanos para las páginas preliminares y numeración decimal para el cuerpo principal.",
+-    "howLabelsWorkStep3": "Usa un prefijo con valor inicial 0 para crear etiquetas como A-0, A-1 y A-2.",
+-    "howLabelsWorkStep4": "Activa la progresión cuando una regla use un rango discontinuo como 1-9,30-40 o páginas impares.",
++    "howLabelsWorkStep2": "Use estilos como números romanos para las páginas preliminares y numeración decimal para el cuerpo principal.",
++    "howLabelsWorkStep3": "Use un prefijo con valor inicial 0 para crear etiquetas como A-0, A-1 y A-2.",
++    "howLabelsWorkStep4": "Active la progresión cuando una regla use un rango discontinuo como 1-9,30-40 o páginas impares.",
+     "labelRulesTitle": "Reglas de etiquetas",
+     "addRule": "Agregar regla",
+     "removeExistingLabels": "Eliminar las etiquetas de página existentes antes de aplicar estas reglas",
+-    "cpdfNote": "Esta herramienta usa CoherentPDF en tu navegador. Si CoherentPDF no está configurado, se te pedirá configurarlo en Ajustes de WASM.",
++    "cpdfNote": "Esta herramienta use CoherentPDF en su navegador. Si CoherentPDF no está configurado, se te pedirá configurarlo en Ajustes de WASM.",
+     "processButton": "Agregar etiquetas de página",
+     "howItWorksUploadTitle": "Subir archivo",
+-    "howItWorksUploadDescription": "Elige el PDF que quieres volver a etiquetar.",
++    "howItWorksUploadDescription": "Elija el PDF que quiere volver a etiquetar.",
+     "howItWorksDefineTitle": "Definir reglas",
+-    "howItWorksDefineDescription": "Configura una o más reglas de etiquetas de página con rangos, estilos, prefijos y valores iniciales.",
++    "howItWorksDefineDescription": "Configure una o más reglas de etiquetas de página con rangos, estilos, prefijos y valores iniciales.",
+     "howItWorksDownloadTitle": "Descargar",
+-    "howItWorksDownloadDescription": "Guarda el PDF actualizado con sus nuevas etiquetas de página.",
++    "howItWorksDownloadDescription": "Guarde el PDF actualizado con sus nuevas etiquetas de página.",
+     "relatedToolsTitle": "Herramientas PDF relacionadas",
+     "faqWhatIsQuestion": "¿Qué es una etiqueta de página?",
+     "faqWhatIsAnswer": "Una etiqueta de página es la numeración que los lectores PDF muestran en miniaturas, navegación de páginas y cuadros de impresión. No imprime texto nuevo sobre la propia página.",
+     "faqMixQuestion": "¿Puedo mezclar números romanos y números normales?",
+-    "faqMixAnswer": "Sí. Agrega varias reglas, como 1-4 con LowercaseRoman y 5-20 con DecimalArabic.",
++    "faqMixAnswer": "Sí. Agregue varias reglas, como 1-4 con LowercaseRoman y 5-20 con DecimalArabic.",
+     "faqPrivacyQuestion": "¿Mis archivos siguen siendo privados?",
+-    "faqPrivacyAnswer": "Sí. El procesamiento ocurre en tu navegador usando CoherentPDF WASM. Tu PDF no sale de tu dispositivo.",
++    "faqPrivacyAnswer": "Sí. El procesamiento ocurre en su navegador usando CoherentPDF WASM. Su PDF no sale de su dispositivo.",
+     "invalidFileTitle": "Archivo no válido",
+-    "invalidFileMessage": "Por favor, sube un archivo PDF válido.",
++    "invalidFileMessage": "Por favor, suba un archivo PDF válido.",
+     "loadingPdf": "Cargando PDF...",
+     "protectedPdfTitle": "PDF protegido",
+-    "protectedPdfMessage": "Este PDF está protegido con contraseña. Usa primero la herramienta Desencriptar o Cambiar permisos.",
++    "protectedPdfMessage": "Este PDF está protegido con contraseña. Use primero la herramienta Desencriptar o Cambiar permisos.",
+     "loadErrorMessage": "No se pudo cargar el archivo PDF. El archivo puede ser inválido, estar dañado o protegido con contraseña.",
+     "fileMeta": "{{size}} • {{count}} páginas",
+     "ruleTitle": "Regla de etiqueta {{number}}",
+@@ -273,7 +273,7 @@
+     "startValueLabel": "Valor inicial",
+     "continueNumbering": "Continuar la numeración en rangos discontinuos",
+     "examplesNote": "Ejemplos: 1-4 para preliminares en números romanos, 15-20 con prefijo A- y valor inicial 0, o páginas impares con progresión activada.",
+-    "uploadFirstMessage": "Primero sube un archivo PDF.",
++    "uploadFirstMessage": "Primero suba un archivo PDF.",
+     "applyingLabels": "Aplicando etiquetas de página...",
+     "invalidRangeMessage": "La regla {{number}} tiene un rango de páginas no válido: {{range}}",
+     "allPages": "todas las páginas",
+@@ -295,20 +295,20 @@
+   },
+   "addWatermark": {
+     "name": "Agregar marca de agua",
+-    "subtitle": "Estampa texto o una imagen sobre tus páginas PDF.",
++    "subtitle": "Estampa texto o una imagen sobre sus páginas PDF.",
+     "applyToAllPages": "Aplicar a todas las páginas"
+   },
+   "headerFooter": {
+     "name": "Encabezado y pie de página",
+-    "subtitle": "Agrega texto en la parte superior e inferior de las páginas."
++    "subtitle": "Agregue texto en la parte superior e inferior de las páginas."
+   },
+   "invertColors": {
+     "name": "Invertir colores",
+-    "subtitle": "Crea una versión en \"modo oscuro\" de tu PDF."
++    "subtitle": "Cree una versión en \"modo oscuro\" de su PDF."
+   },
+   "scannerEffect": {
+     "name": "Efecto escáner",
+-    "subtitle": "Haz que tu PDF parezca un documento escaneado.",
++    "subtitle": "Haga que su PDF parezca un documento escaneado.",
+     "scanSettings": "Ajustes de escaneo",
+     "colorspace": "Espacio de color",
+     "gray": "Gris",
+@@ -325,7 +325,7 @@
+   },
+   "adjustColors": {
+     "name": "Ajustar colores",
+-    "subtitle": "Ajusta brillo, contraste, saturación y más en tu PDF.",
++    "subtitle": "Ajuste brillo, contraste, saturación y más en su PDF.",
+     "colorSettings": "Configuración de color",
+     "brightness": "Brillo",
+     "contrast": "Contraste",
+@@ -339,34 +339,34 @@
+   },
+   "backgroundColor": {
+     "name": "Color de fondo",
+-    "subtitle": "Cambia el color de fondo de tu PDF."
++    "subtitle": "Cambie el color de fondo de su PDF."
+   },
+   "changeTextColor": {
+     "name": "Cambiar color de texto",
+-    "subtitle": "Cambia el color del texto en tu PDF."
++    "subtitle": "Cambie el color del texto en su PDF."
+   },
+   "addStamps": {
+     "name": "Agregar sellos",
+-    "subtitle": "Agrega sellos de imagen a tu PDF usando la barra de herramientas de anotación.",
++    "subtitle": "Agregue sellos de imagen a su PDF usando la barra de herramientas de anotación.",
+     "usernameLabel": "Nombre de Usuario del Sello",
+-    "usernamePlaceholder": "Ingresa tu nombre (para sellos)",
++    "usernamePlaceholder": "Ingrese su nombre (para sellos)",
+     "usernameHint": "Este nombre aparecerá en los sellos que crees.",
+     "saveButton": "Guardar PDF sellado"
+   },
+   "removeAnnotations": {
+     "name": "Eliminar anotaciones",
+-    "subtitle": "Elimina comentarios, resaltados y enlaces."
++    "subtitle": "Elimine comentarios, resaltados y enlaces."
+   },
+   "pdfFormFiller": {
+     "name": "Rellenar formularios PDF",
+     "subtitle": "Rellena formularios directamente en el navegador. También soporta formularios XFA.",
+-    "uploadHint": "Sube un PDF con campos de formulario. Rellénalos directamente en el visor de abajo, luego haz clic en el botón para guardar y descargar el formulario completado. También admite formularios XFA.",
++    "uploadHint": "Suba un PDF con campos de formulario. Rellénalos directamente en el visor de abajo, luego haga clic en el botón para guardar y descargar el formulario completado. También admite formularios XFA.",
+     "xfaNoteTitle": "Nota sobre formularios XFA:",
+-    "xfaNoteDescription": "XFA (XML Forms Architecture) es un formato heredado solo compatible con ciertos visores de PDF como BentoPDF y Firefox. Si abres un PDF XFA en otro software y ves páginas en blanco o ningún campo de formulario, significa que ese visor no admite XFA. Para ver y rellenar correctamente formularios XFA, usa Firefox o el llenador de formularios de BentoPDF."
++    "xfaNoteDescription": "XFA (XML Forms Architecture) es un formato heredado solo compatible con ciertos visores de PDF como BentoPDF y Firefox. Si abres un PDF XFA en otro software y ves páginas en blanco o ningún campo de formulario, significa que ese visor no admite XFA. Para ver y rellenar correctamente formularios XFA, use Firefox o el llenador de formularios de BentoPDF."
+   },
+   "createPdfForm": {
+     "name": "Crear formulario PDF",
+-    "subtitle": "Crea formularios PDF rellenables con campos de texto arrastrables.",
++    "subtitle": "Cree formularios PDF rellenables con campos de texto arrastrables.",
+     "orSeparator": "O",
+     "createBlankPdf": "Crear PDF en blanco"
+   },
+@@ -381,27 +381,27 @@
+   },
+   "pngToPdf": {
+     "name": "PNG a PDF",
+-    "subtitle": "Crea un PDF desde una o más imágenes PNG."
++    "subtitle": "Cree un PDF desde una o más imágenes PNG."
+   },
+   "webpToPdf": {
+     "name": "WebP a PDF",
+-    "subtitle": "Crea un PDF desde una o más imágenes WebP."
++    "subtitle": "Cree un PDF desde una o más imágenes WebP."
+   },
+   "svgToPdf": {
+     "name": "SVG a PDF",
+-    "subtitle": "Crea un PDF desde una o más imágenes SVG."
++    "subtitle": "Cree un PDF desde una o más imágenes SVG."
+   },
+   "bmpToPdf": {
+     "name": "BMP a PDF",
+-    "subtitle": "Crea un PDF desde una o más imágenes BMP."
++    "subtitle": "Cree un PDF desde una o más imágenes BMP."
+   },
+   "heicToPdf": {
+     "name": "HEIC a PDF",
+-    "subtitle": "Crea un PDF desde una o más imágenes HEIC."
++    "subtitle": "Cree un PDF desde una o más imágenes HEIC."
+   },
+   "tiffToPdf": {
+     "name": "TIFF a PDF",
+-    "subtitle": "Crea un PDF desde una o más imágenes TIFF."
++    "subtitle": "Cree un PDF desde una o más imágenes TIFF."
+   },
+   "textToPdf": {
+     "name": "Texto a PDF",
+@@ -413,7 +413,7 @@
+     "fontSize": "Tamaño de fuente",
+     "textColor": "Color del texto",
+     "pageSize": "Tamaño de página",
+-    "rtlAutoDetectNote": "Los idiomas RTL (árabe, urdu, persa, etc.) se detectan automáticamente y la dirección del texto se ajusta.",
++    "rtlAutoDetectNote": "Los idiomas RTL (árabe, urdu, persa, etc.) se detectan automáticamente y la dirección del texto se ajuste.",
+     "createButton": "Crear PDF"
+   },
+   "jsonToPdf": {
+@@ -423,7 +423,7 @@
+     "noteText": "Solo se admiten archivos JSON creados por la herramienta PDF a JSON. Los archivos JSON estándar de otras herramientas no funcionarán.",
+     "acceptedFormats": "Múltiples archivos JSON",
+     "status": {
+-      "selectAtLeastOne": "Por favor selecciona al menos 1 archivo JSON",
++      "selectAtLeastOne": "Por favor seleccione al menos 1 archivo JSON",
+       "selectedReady": "{{count}} archivo(s) seleccionado(s). ¡Listo para convertir!",
+       "readingFiles": "Leyendo archivos (Hilo principal)...",
+       "converting": "Convirtiendo archivos JSON a PDF...",
+@@ -432,7 +432,7 @@
+       "success": "¡Archivos JSON convertidos a PDF correctamente! Descarga ZIP iniciada.",
+       "zipError": "Error al crear ZIP: {{message}}",
+       "workerError": "Error de Worker: {{message}}",
+-      "getStarted": "Selecciona archivos JSON para comenzar"
++      "getStarted": "Seleccione archivos JSON para comenzar"
+     }
+   },
+   "pdfToJpg": {
+@@ -442,9 +442,9 @@
+     "imageQualityExplanation": "Mayor calidad = mayor tamaño de archivo",
+     "alert": {
+       "invalidFile": "Archivo no válido",
+-      "invalidFileExplanation": "Por favor sube un archivo PDF.",
++      "invalidFileExplanation": "Por favor suba un archivo PDF.",
+       "noFile": "Sin archivo",
+-      "noFileExplanation": "Por favor sube primero un archivo PDF.",
++      "noFileExplanation": "Por favor suba primero un archivo PDF.",
+       "conversionSuccess": "¡PDF convertido a JPG correctamente!",
+       "conversionError": "Error al convertir PDF a JPG. El archivo podría estar dañado."
+     },
+@@ -459,9 +459,9 @@
+     "imageScaleExplanation": "Mayor escala = mejor calidad pero archivo más grande",
+     "alert": {
+       "invalidFile": "Archivo no válido",
+-      "invalidFileExplanation": "Por favor sube un archivo PDF.",
++      "invalidFileExplanation": "Por favor suba un archivo PDF.",
+       "noFile": "Sin archivo",
+-      "noFileExplanation": "Por favor sube primero un archivo PDF.",
++      "noFileExplanation": "Por favor suba primero un archivo PDF.",
+       "conversionSuccess": "¡PDF convertido a PNG correctamente!",
+       "conversionError": "Error al convertir PDF a PNG. El archivo podría estar dañado."
+     },
+@@ -476,9 +476,9 @@
+     "imageQualityExplanation": "Mayor calidad = mayor tamaño de archivo",
+     "alert": {
+       "invalidFile": "Archivo no válido",
+-      "invalidFileExplanation": "Por favor sube un archivo PDF.",
++      "invalidFileExplanation": "Por favor suba un archivo PDF.",
+       "noFile": "Sin archivo",
+-      "noFileExplanation": "Por favor sube primero un archivo PDF.",
++      "noFileExplanation": "Por favor suba primero un archivo PDF.",
+       "conversionSuccess": "¡PDF convertido a WebP correctamente!",
+       "conversionError": "Error al convertir PDF a WebP. El archivo podría estar dañado."
+     },
+@@ -491,9 +491,9 @@
+     "subtitle": "Convierte cada página PDF en una imagen BMP.",
+     "alert": {
+       "invalidFile": "Archivo no válido",
+-      "invalidFileExplanation": "Por favor sube un archivo PDF.",
++      "invalidFileExplanation": "Por favor suba un archivo PDF.",
+       "noFile": "Sin archivo",
+-      "noFileExplanation": "Por favor sube primero un archivo PDF.",
++      "noFileExplanation": "Por favor suba primero un archivo PDF.",
+       "conversionSuccess": "¡PDF convertido a BMP correctamente!",
+       "conversionError": "Error al convertir PDF a BMP. El archivo podría estar dañado."
+     },
+@@ -514,12 +514,12 @@
+     "converting": "Convirtiendo a TIFF...",
+     "alert": {
+       "invalidFile": "Archivo no válido",
+-      "invalidFileExplanation": "Por favor sube un archivo PDF.",
++      "invalidFileExplanation": "Por favor suba un archivo PDF.",
+       "noFile": "Sin archivo",
+-      "noFileExplanation": "Por favor sube primero un archivo PDF.",
++      "noFileExplanation": "Por favor suba primero un archivo PDF.",
+       "conversionSuccess": "¡PDF convertido a TIFF correctamente!",
+       "conversionError": "Error al convertir PDF a TIFF. El archivo podría estar dañado.",
+-      "conversionOutOfMemory": "El navegador se quedó sin memoria durante la conversión. Prueba con un PPP más bajo o desmarca la opción de TIFF multipágina para convertir las páginas una a una."
++      "conversionOutOfMemory": "El navegador se quedó sin memoria durante la conversión. Pruebe con un PPP más bajo o desmarca la opción de TIFF multipágina para convertir las páginas una a una."
+     }
+   },
+   "pdfToCbz": {
+@@ -561,7 +561,7 @@
+     "subtitle": "Convierte archivos PDF a formato JSON.",
+     "convertButton": "Convertir a JSON",
+     "status": {
+-      "selectAtLeastOne": "Por favor selecciona al menos 1 archivo PDF",
++      "selectAtLeastOne": "Por favor seleccione al menos 1 archivo PDF",
+       "selectedReady": "{{count}} archivo(s) seleccionado(s). ¡Listo para convertir!",
+       "checkingEncrypted": "Comprobando PDF cifrados...",
+       "readingFiles": "Leyendo archivos (Hilo principal)...",
+@@ -571,7 +571,7 @@
+       "success": "¡PDF convertidos a JSON correctamente! Descarga ZIP iniciada.",
+       "zipError": "Error al crear ZIP: {{message}}",
+       "workerError": "Error de Worker: {{message}}",
+-      "getStarted": "Selecciona archivos PDF para comenzar"
++      "getStarted": "Seleccione archivos PDF para comenzar"
+     }
+   },
+   "ocrPdf": {
+@@ -603,7 +603,7 @@
+     "startButton": "Iniciar OCR",
+     "progressInitializing": "Inicializando...",
+     "resultsTitle": "OCR completo",
+-    "resultsDescription": "Tu PDF buscable está listo. También puedes copiar o descargar el texto extraído a continuación.",
++    "resultsDescription": "Su PDF buscable está listo. También puede copiar o descargar el texto extraído a continuación.",
+     "copyToClipboard": "Copiar al portapapeles",
+     "downloadTxt": "Descargar como .txt",
+     "downloadSearchablePdf": "Descargar PDF buscable",
+@@ -612,27 +612,27 @@
+     "availabilityBundles": "Esta implementación incluye OCR para: {{languages}}.",
+     "noLanguagesAvailable": "No hay idiomas OCR disponibles en esta implementación.",
+     "noLanguagesTitle": "Ningún idioma seleccionado",
+-    "noLanguagesMessage": "Por favor selecciona al menos un idioma para OCR.",
++    "noLanguagesMessage": "Por favor seleccione al menos un idioma para OCR.",
+     "noFileTitle": "Sin archivo",
+-    "noFileMessage": "Por favor sube primero un archivo PDF.",
++    "noFileMessage": "Por favor suba primero un archivo PDF.",
+     "languageUnavailableTitle": "Idioma OCR no disponible",
+     "ocrErrorTitle": "Error de OCR",
+     "ocrErrorMessage": "Ocurrió un error durante el proceso OCR. Es posible que el worker no se haya cargado. Inténtalo de nuevo.",
+     "howItWorksTitle": "Cómo funciona:",
+     "extractTextLabel": "Extraer texto:",
+-    "extractTextDescription": "Usa Tesseract OCR para reconocer texto en imágenes escaneadas o PDF.",
++    "extractTextDescription": "Use Tesseract OCR para reconocer texto en imágenes escaneadas o PDF.",
+     "searchableOutputLabel": "Salida buscable:",
+-    "searchableOutputDescription": "Crea un nuevo PDF con una capa de texto invisible, haciendo tu documento totalmente buscable y conservando la apariencia original.",
++    "searchableOutputDescription": "Cree un nuevo PDF con una capa de texto invisible, haciendo su documento totalmente buscable y conservando la apariencia original.",
+     "characterFilteringLabel": "Filtrado de caracteres:",
+-    "characterFilteringDescription": "Usa listas blancas para filtrar caracteres no deseados y mejorar la precisión para tipos específicos de documentos (facturas, formularios, etc.).",
++    "characterFilteringDescription": "Use listas blancas para filtrar caracteres no deseados y mejorar la precisión para tipos específicos de documentos (facturas, formularios, etc.).",
+     "multiLanguageSupportLabel": "Soporte multilingüe:",
+-    "multiLanguageSupportDescription": "Selecciona varios idiomas para documentos que contengan contenido en idiomas mixtos."
++    "multiLanguageSupportDescription": "Seleccione varios idiomas para documentos que contengan contenido en idiomas mixtos."
+   },
+   "alternateMerge": {
+     "name": "Alternar y mezclar páginas",
+     "subtitle": "Fusiona PDFs alternando páginas de cada PDF. Preserva Marcadores.",
+     "retainPageLabels": "Conservar las etiquetas de página originales de cada archivo",
+-    "retainPageLabelsHint": "Desactivado (predeterminado): el PDF combinado usa numeración natural 1–N. Activado: se conservan las etiquetas de página originales de cada archivo (puede producir etiquetas duplicadas)."
++    "retainPageLabelsHint": "Desactivado (predeterminado): el PDF combinado use numeración natural 1–N. Activado: se conservan las etiquetas de página originales de cada archivo (puede producir etiquetas duplicadas)."
+   },
+   "duplexCollate": {
+     "name": "Intercalar escaneo a doble cara",
+@@ -649,7 +649,7 @@
+     "groupedHelp": "Si se activa, el resultado es un ZIP con un PDF por cada documento agrupado.",
+     "collateButton": "Intercalar PDF",
+     "invalidFileTitle": "Archivo no válido",
+-    "invalidFileMessage": "Selecciona un archivo PDF.",
++    "invalidFileMessage": "Seleccione un archivo PDF.",
+     "loadingPdf": "Cargando PDF...",
+     "loadErrorMessage": "No se pudo cargar el archivo PDF.",
+     "fileMeta": "{{size}} - {{count}} páginas",
+@@ -657,31 +657,31 @@
+     "previewSummary": "Bloque de anversos: {{frontCount}} página(s), bloque de reversos: {{backCount}} página(s). Resultado: {{outputCount}} página(s), en secuencia anverso/reverso.",
+     "previewMismatchWarning": "Los bloques de anversos y reversos tienen longitudes distintas ({{frontCount}} anversos frente a {{backCount}} reversos). Las {{extraCount}} página(s) sobrantes del bloque más largo se añadirán sin pareja al final.",
+     "missingFileTitle": "Falta el archivo",
+-    "missingFileMessage": "Sube un PDF con al menos 2 páginas antes de procesarlo.",
++    "missingFileMessage": "Suba un PDF con al menos 2 páginas antes de procesarlo.",
+     "invalidSplitTitle": "Punto de división no válido",
+     "invalidSplitMessage": "El punto de división debe estar entre la página 1 y la página {{maxSplit}}.",
+     "unevenConfirmTitle": "Bloques desiguales",
+     "unevenConfirmMessage": "El bloque de anversos tiene {{frontCount}} página(s) y el de reversos {{backCount}} página(s).\nNormalmente esto significa que una página se escaneó dos veces o que falta alguna.\n\nLas {{extraCount}} página(s) sin pareja se añadirán al final.\n\n¿Continuar de todos modos?",
+     "invalidGroupTitle": "Tamaño de grupo no válido",
+-    "invalidGroupMessage": "Introduce un número válido de páginas por documento original.",
++    "invalidGroupMessage": "Introduzca un número válido de páginas por documento original.",
+     "collatingLoader": "Intercalando el escaneo a doble cara...",
+     "successMessage": "PDF intercalado generado correctamente.",
+     "successGroupedMessage": "Intercalado completado. Se han generado {{fileCount}} archivo(s) agrupado(s).",
+     "processErrorMessage": "No se pudo intercalar el PDF.",
+-    "howItWorksStep1Title": "Sube el escaneo",
++    "howItWorksStep1Title": "Suba el escaneo",
+     "howItWorksStep1": "Suelta el PDF único que contiene todos los anversos seguidos de todos los reversos.",
+-    "howItWorksStep2Title": "Define el punto de división",
+-    "howItWorksStep2": "Indica dónde termina el bloque de anversos y elige si el bloque de reversos debe invertirse.",
++    "howItWorksStep2Title": "Defina el punto de división",
++    "howItWorksStep2": "Indica dónde termina el bloque de anversos y elija si el bloque de reversos debe invertirse.",
+     "howItWorksStep3Title": "Intercala y descarga",
+     "howItWorksStep3": "Obtén un PDF intercalado o un ZIP con un archivo independiente por cada documento original.",
+     "faqOddPagesQuestion": "¿Y si mi escaneo tiene un número impar de páginas?",
+     "faqOddPagesAnswer": "Un escaneo a doble cara debería tener un número par de páginas. Si no es así, probablemente se escaneó una página dos veces o se omitió alguna. La herramienta te avisa antes de procesar y las páginas sin pareja se añaden al final para que no se pierda nada.",
+     "faqBackOrderQuestion": "¿Por qué querría mantener el bloque de reversos tal cual?",
+-    "faqBackOrderAnswer": "Depende de cómo se colocó la pila en la segunda pasada. Girar la pila entera produce reversos en orden inverso, que es la opción predeterminada. Si tu escáner los devolvió en el mismo orden que los anversos, elige mantener el bloque tal cual."
++    "faqBackOrderAnswer": "Depende de cómo se colocó la pila en la segunda pasada. Girar la pila entera produce reversos en orden inverso, que es la opción predeterminada. Si su escáner los devolvió en el mismo orden que los anversos, elija mantener el bloque tal cual."
+   },
+   "addAttachments": {
+     "name": "Agregar adjuntos",
+-    "subtitle": "Incrusta uno o más archivos en tu PDF."
++    "subtitle": "Incrusta uno o más archivos en su PDF."
+   },
+   "extractAttachments": {
+     "name": "Extraer adjuntos",
+@@ -689,7 +689,7 @@
+   },
+   "editAttachments": {
+     "name": "Editar adjuntos",
+-    "subtitle": "Ve o elimina adjuntos en tu PDF."
++    "subtitle": "Ve o elimina adjuntos en su PDF."
+   },
+   "dividePages": {
+     "name": "Dividir páginas",
+@@ -697,11 +697,11 @@
+   },
+   "addBlankPage": {
+     "name": "Agregar página en blanco",
+-    "subtitle": "Inserta una página vacía en cualquier lugar de tu PDF."
++    "subtitle": "Inserta una página vacía en cualquier lugar de su PDF."
+   },
+   "reversePages": {
+     "name": "Invertir páginas",
+-    "subtitle": "Invierte el orden de todas las páginas en tu documento."
++    "subtitle": "Invierte el orden de todas las páginas en su documento."
+   },
+   "rotatePdf": {
+     "name": "Rotar PDF",
+@@ -721,11 +721,11 @@
+   },
+   "viewMetadata": {
+     "name": "Ver metadatos",
+-    "subtitle": "Inspecciona las propiedades ocultas de tu PDF."
++    "subtitle": "Inspecciona las propiedades ocultas de su PDF."
+   },
+   "editMetadata": {
+     "name": "Editar metadatos",
+-    "subtitle": "Cambia el autor, título y otras propiedades."
++    "subtitle": "Cambie el autor, título y otras propiedades."
+   },
+   "pdfsToZip": {
+     "name": "PDFs a ZIP",
+@@ -736,7 +736,7 @@
+     "subtitle": "Compara dos PDFs lado a lado.",
+     "firstPdf": "Primer PDF",
+     "secondPdf": "Segundo PDF",
+-    "clickOrDrop": "Haz clic o suelta",
++    "clickOrDrop": "Haga clic o suelte",
+     "page": "Página",
+     "overlay": "Superposición",
+     "sideBySide": "Lado a lado",
+@@ -757,7 +757,7 @@
+     "nextPage": "Página siguiente",
+     "prevChange": "Cambio anterior",
+     "nextChange": "Cambio siguiente",
+-    "uploadTwoPdfs": "Sube dos PDFs para ver las diferencias.",
++    "uploadTwoPdfs": "Suba dos PDFs para ver las diferencias.",
+     "noDifferences": "No se detectaron diferencias en esta página.",
+     "noMatchingChanges": "Ningún cambio coincide con el filtro actual.",
+     "pageNotExist": "La página {{page}} no existe en este PDF.",
+@@ -772,7 +772,7 @@
+     "exportFailed": "No se pudo exportar el PDF de comparación.",
+     "loadingFile": "Cargando {{name}}...",
+     "invalidFile": "Archivo no válido",
+-    "invalidFileMsg": "Selecciona un archivo PDF válido.",
++    "invalidFileMsg": "Seleccione un archivo PDF válido.",
+     "loadError": "No se pudo cargar el PDF. Puede estar dañado o protegido con contraseña."
+   },
+   "posterizePdf": {
+@@ -793,7 +793,7 @@
+   },
+   "removeRestrictions": {
+     "name": "Eliminar restricciones",
+-    "subtitle": "Elimina la protección por contraseña y las restricciones de seguridad asociadas con archivos PDF firmados digitalmente."
++    "subtitle": "Elimine la protección por contraseña y las restricciones de seguridad asociadas con archivos PDF firmados digitalmente."
+   },
+   "repairPdf": {
+     "name": "Reparar PDF",
+@@ -801,11 +801,11 @@
+   },
+   "encryptPdf": {
+     "name": "Cifrar PDF",
+-    "subtitle": "Bloquea tu PDF agregando una contraseña."
++    "subtitle": "Bloquea su PDF agregando una contraseña."
+   },
+   "sanitizePdf": {
+     "name": "Sanear PDF",
+-    "subtitle": "Elimina metadatos, anotaciones, scripts y más."
++    "subtitle": "Elimine metadatos, anotaciones, scripts y más."
+   },
+   "decryptPdf": {
+     "name": "Descifrar PDF",
+@@ -817,11 +817,11 @@
+   },
+   "removeMetadata": {
+     "name": "Eliminar metadatos",
+-    "subtitle": "Elimina datos ocultos de tu PDF."
++    "subtitle": "Elimine datos ocultos de su PDF."
+   },
+   "changePermissions": {
+     "name": "Cambiar permisos",
+-    "subtitle": "Establece o cambia los permisos de usuario en un PDF."
++    "subtitle": "Establezca o cambie los permisos de usuario en un PDF."
+   },
+   "odtToPdf": {
+     "name": "ODT a PDF",
+@@ -861,7 +861,7 @@
+   },
+   "markdownToPdf": {
+     "name": "Markdown a PDF",
+-    "subtitle": "Escribe o pega Markdown y expórtalo como un PDF bellamente formateado.",
++    "subtitle": "Escriba o pegue Markdown y expórtalo como un PDF bellamente formateado.",
+     "paneMarkdown": "Markdown",
+     "panePreview": "Vista Previa",
+     "btnUpload": "Seleccionar",
+@@ -1005,18 +1005,18 @@
+     "name": "PDF a texto",
+     "subtitle": "Extrae texto de archivos PDF y guarda como texto plano (.txt). Soporta múltiples archivos.",
+     "noteLabel": "Nota:",
+-    "noteText": "Esta herramienta funciona SOLO con PDF creados digitalmente. Para documentos escaneados o PDF basados en imágenes, usa nuestra herramienta OCR PDF.",
++    "noteText": "Esta herramienta funciona SOLO con PDF creados digitalmente. Para documentos escaneados o PDF basados en imágenes, use nuestra herramienta OCR PDF.",
+     "convertButton": "Extraer Texto"
+   },
+   "digitalSignPdf": {
+     "name": "Firma digital PDF",
+     "pageTitle": "Firma Digital PDF - Agregar Firma Criptográfica | BentoPDF",
+-    "subtitle": "Agrega una firma digital criptográfica a tu PDF usando certificados X.509. Soporta formatos PKCS#12 (.pfx, .p12) y PEM. Tu clave privada nunca sale de tu navegador.",
++    "subtitle": "Agregue una firma digital criptográfica a su PDF usando certificados X.509. Soporta formatos PKCS#12 (.pfx, .p12) y PEM. Su clave privada nunca sale de su navegador.",
+     "certificateSection": "Certificado",
+     "uploadCert": "Cargar certificado (.pfx, .p12, .pem)",
+     "certPassword": "Contraseña del Certificado",
+     "privateKeyPassword": "Contraseña de clave privada",
+-    "certPasswordPlaceholder": "Ingresa la contraseña del certificado",
++    "certPasswordPlaceholder": "Ingrese la contraseña del certificado",
+     "certInfo": "Información del Certificado",
+     "certSubject": "Sujeto",
+     "certIssuer": "Emisor",
+@@ -1029,7 +1029,7 @@
+     "contactInfo": "Información de Contacto",
+     "contactPlaceholder": "ej., email@example.com",
+     "visibleSignature": "Firma visible",
+-    "visibleSignatureDescription": "Cuando está habilitado, aparece un cuadro de firma visible en el PDF. Puedes subir una imagen/logo o añadir texto. Si no se proporciona ninguno, se mostrará automáticamente el nombre del firmante del certificado.",
++    "visibleSignatureDescription": "Cuando está habilitado, aparece un cuadro de firma visible en el PDF. Puede subir una imagen/logo o añadir texto. Si no se proporciona ninguno, se mostrará automáticamente el nombre del firmante del certificado.",
+     "signatureImage": "Imagen/Logo de firma (opcional)",
+     "uploadSignatureImage": "Subir imagen (PNG, JPG, WebP)",
+     "signaturePreviewAlt": "Vista previa de firma",
+@@ -1050,33 +1050,33 @@
+     "textColor": "Color del texto",
+     "fontSize": "Tamaño de fuente",
+     "invalidImageTitle": "Imagen no válida",
+-    "invalidImageMessage": "Por favor selecciona una imagen PNG, JPG o WebP.",
++    "invalidImageMessage": "Por favor seleccione una imagen PNG, JPG o WebP.",
+     "invalidFileTitle": "Archivo no válido",
+-    "invalidFileMessage": "Por favor selecciona un archivo PDF.",
++    "invalidFileMessage": "Por favor seleccione un archivo PDF.",
+     "invalidCertificateTitle": "Certificado no válido",
+-    "invalidCertificateMessage": "Por favor selecciona un archivo de certificado .pfx, .p12 o .pem.",
++    "invalidCertificateMessage": "Por favor seleccione un archivo de certificado .pfx, .p12 o .pem.",
+     "certificateLoaded": "Certificado cargado",
+     "certificateUnlocked": "Certificado desbloqueado",
+     "failedParsePem": "No se pudo analizar el archivo PEM",
+-    "enterPasswordToUnlock": "Introduce la contraseña para desbloquear",
++    "enterPasswordToUnlock": "Introduzca la contraseña para desbloquear",
+     "invalidPasswordOrCertificate": "Contraseña o certificado no válidos",
+     "incorrectPassword": "Contraseña incorrecta",
+     "failedParseCertificate": "No se pudo analizar el certificado",
+     "missingDataTitle": "Datos faltantes",
+-    "missingDataMessage": "Por favor sube un PDF y un certificado válido.",
++    "missingDataMessage": "Por favor suba un PDF y un certificado válido.",
+     "applyingSignature": "Aplicando firma digital...",
+     "signingFailedTitle": "Error al firmar",
+-    "chainFetchFailed": "No se pudo obtener la cadena de certificados. Esto puede deberse a problemas de red o a que el proxy de certificados no está disponible. Comprueba tu conexión a Internet e inténtalo de nuevo. Si el problema persiste, contacta con soporte.",
++    "chainFetchFailed": "No se pudo obtener la cadena de certificados. Esto puede deberse a problemas de red o a que el proxy de certificados no está disponible. Comprueba su conexión a Internet e inténtalo de nuevo. Si el problema persiste, contacta con soporte.",
+     "failedToSignPdf": "No se pudo firmar el PDF: {{message}}",
+     "defaultSignatureText": "Firmado digitalmente por {{signer}}\n{{date}}",
+     "pageCount": "{{count}} páginas",
+     "howToStep1Title": "Subir PDF",
+-    "howToStep1Text": "Selecciona el documento PDF que quieres firmar",
++    "howToStep1Text": "Seleccione el documento PDF que quiere firmar",
+     "howToStep2Title": "Subir certificado",
+-    "howToStep2Text": "Proporciona tu archivo de certificado .pfx o .p12 y la contraseña",
++    "howToStep2Text": "Proporciona su archivo de certificado .pfx o .p12 y la contraseña",
+     "howToStep3Title": "Firmar y descargar",
+-    "howToStep3Text": "Aplica la firma digital y descarga tu PDF firmado",
+-    "relatedEncryptDesc": "Proteger tu PDF con contraseña",
++    "howToStep3Text": "Aplica la firma digital y descarga su PDF firmado",
++    "relatedEncryptDesc": "Proteger su PDF con contraseña",
+     "relatedDecryptDesc": "Eliminar contraseña del PDF",
+     "relatedFlattenDesc": "Hacer las anotaciones permanentes",
+     "relatedSanitizeDesc": "Eliminar datos ocultos",
+@@ -1086,23 +1086,23 @@
+     "faqFormatsQuestion": "¿Qué formatos de certificado se admiten?",
+     "faqFormatsAnswer": "Soportamos certificados en formato PKCS#12 (.pfx, .p12), que contienen tanto el certificado como la clave privada en un único archivo cifrado. Estos suelen ser emitidos por autoridades de certificación.",
+     "faqPrivateKeyQuestion": "¿Mi clave privada está segura?",
+-    "faqPrivateKeyAnswer": "¡Sí! Todo el procesamiento ocurre completamente en tu navegador. Tu certificado, clave privada y archivos PDF nunca salen de tu dispositivo ni se suben a ningún servidor.",
++    "faqPrivateKeyAnswer": "¡Sí! Todo el procesamiento ocurre completamente en su navegador. Su certificado, clave privada y archivos PDF nunca salen de su dispositivo ni se suben a ningún servidor.",
+     "faqValidReadersQuestion": "¿La firma será válida en los lectores de PDF?",
+-    "faqValidReadersAnswer": "Sí, la herramienta crea firmas separadas PKCS#7 estándar reconocidas por todos los principales lectores de PDF. Para una validación completa, usa un certificado de una autoridad de certificación de confianza.",
++    "faqValidReadersAnswer": "Sí, la herramienta crea firmas separadas PKCS#7 estándar reconocidas por todos los principales lectores de PDF. Para una validación completa, use un certificado de una autoridad de certificación de confianza.",
+     "applySignature": "Aplicar Firma Digital",
+     "successMessage": "¡PDF firmado exitosamente! La firma se puede verificar en cualquier lector de PDF.",
+     "internetRequiredTitle": "Se requiere conexión a Internet",
+-    "internetRequiredDescription": "La firma puede necesitar obtener información de la cadena de certificados del servidor de tu emisor para validar la firma."
++    "internetRequiredDescription": "La firma puede necesitar obtener información de la cadena de certificados del servidor de su emisor para validar la firma."
+   },
+   "validateSignaturePdf": {
+     "name": "Validar firma PDF",
+     "pageTitle": "Validar Firma PDF - Verificar Firmas Digitales | BentoPDF",
+-    "subtitle": "Verifica firmas digitales en tus archivos PDF. Comprueba la validez del certificado, ve los detalles del firmante y confirma la integridad del documento."
++    "subtitle": "Verifica firmas digitales en sus archivos PDF. Comprueba la validez del certificado, ve los detalles del firmante y confirma la integridad del documento."
+   },
+   "timestampPdf": {
+     "name": "Sellar PDF con marca de tiempo",
+     "pageTitle": "Marca de tiempo PDF gratis - Sello RFC 3161 | BentoPDF",
+-    "subtitle": "Añade una marca de tiempo RFC 3161 a tu PDF mediante un servidor TSA de confianza. Demuestra que tu documento existía en un momento específico. No se requiere certificado.",
++    "subtitle": "Añada una marca de tiempo RFC 3161 a su PDF mediante un servidor TSA de confianza. Demuestra que su documento existía en un momento específico. No se requiere certificado.",
+     "tsaSectionTitle": "Servidor de marca de tiempo (TSA)",
+     "selectTsa": "Seleccionar un servidor TSA",
+     "applyTimestamp": "Aplicar marca de tiempo",
+@@ -1185,7 +1185,7 @@
+     "specialNodes": {
+       "pdfInput": {
+         "name": "Entrada PDF",
+-        "description": "Sube uno o más archivos PDF"
++        "description": "Suba uno o más archivos PDF"
+       },
+       "download": {
+         "name": "Descargar",
+@@ -1241,17 +1241,17 @@
+       "svgFailedToConvert": "Error al convertir SVG",
+       "svgFailedToLoad": "Error al cargar SVG",
+       "timestampFailed": "Error al sellar el tiempo usando TSA {{tsa}}: {{message}}",
+-      "noOutputNodes": "No se encontraron nodos de salida. Añade un nodo de descarga para completar tu workflow.",
+-      "circularDependency": "Dependencia circular detectada en el workflow. Elimina cualquier bucle entre nodos.",
+-      "encryptOrdering": "El nodo de cifrado se conecta a \"{{target}}\", que puede fallar con datos cifrados. Mueve el cifrado justo antes del nodo de salida.",
++      "noOutputNodes": "No se encontraron nodos de salida. Añada un nodo de descarga para completar su workflow.",
++      "circularDependency": "Dependencia circular detectada en el workflow. Elimine cualquier bucle entre nodos.",
++      "encryptOrdering": "El nodo de cifrado se conecta a \"{{target}}\", que puede fallar con datos cifrados. Mueva el cifrado justo antes del nodo de salida.",
+       "invalidWorkflowFile": "Archivo de workflow inválido: faltan los arrays de nodos o conexiones.",
+-      "storageQuotaExceeded": "Error al guardar el workflow: cuota de almacenamiento excedida. Intenta eliminar plantillas antiguas.",
++      "storageQuotaExceeded": "Error al guardar el workflow: cuota de almacenamiento excedida. Intente eliminar plantillas antiguas.",
+       "failedToImport": "Error al importar el workflow: {{message}}"
+     }
+   },
+   "wasmSettings": {
+     "title": "Configuración de funciones avanzadas",
+-    "description": "Configura módulos de procesamiento externos para habilitar funciones avanzadas de PDF. Estos módulos son opcionales y tienen licencia separada.",
++    "description": "Configure módulos de procesamiento externos para habilitar funciones avanzadas de PDF. Estos módulos son opcionales y tienen licencia separada.",
+     "status": {
+       "testing": "Probando...",
+       "customOverride": "Anulación personalizada",
+@@ -1259,7 +1259,7 @@
+       "notConfigured": "No configurado"
+     },
+     "preconfiguredTitle": "Preconfigurado y listo para usar.",
+-    "preconfiguredDescription": "Los módulos avanzados de procesamiento se cargan automáticamente desde CDN. Puedes anular las URL siguientes si necesitas usar una fuente personalizada (p. ej., para implementaciones air-gapped o autoalojadas).",
++    "preconfiguredDescription": "Los módulos avanzados de procesamiento se cargan automáticamente desde CDN. Puede anular las URL siguientes si necesita usar una fuente personalizada (p. ej., para implementaciones air-gapped o autoalojadas).",
+     "usingDefault": "Usando predeterminado: {{url}}",
+     "pymupdfSubtitle": "Motor de procesamiento de documentos",
+     "pymupdfFeatures": "Habilita: PDF a Texto, Markdown, SVG, DOCX, Excel • Extraer Imágenes/Tablas • Conversión de formato",
+@@ -1277,7 +1277,7 @@
+     "errorTitle": "Error",
+     "failedSave": "No se pudo guardar la configuración: {{message}}",
+     "emptyUrlTitle": "URL vacía",
+-    "emptyUrlMessage": "Por favor introduce una URL para probar.",
++    "emptyUrlMessage": "Por favor introduzca una URL para probar.",
+     "testSuccessTitle": "Éxito",
+     "connectionSuccess": "¡Conexión a {{package}} exitosa!",
+     "connectionFailedTitle": "Conexión fallida",
+@@ -1310,7 +1310,7 @@
+     "howItWorksDownloadTitle": "Descargar",
+     "howItWorksDownloadDescription": "Descargue su PDF con la superposición o fondo aplicado.",
+     "faqDifferenceQuestion": "¿Cuál es la diferencia entre superposición y fondo?",
+-    "faqDifferenceAnswer": "La superposición coloca páginas encima de su PDF base (como una marca de agua). El fondo coloca páginas detrás de su PDF base (como un membrete o fondo).",
++    "faqDifferenceAnswer": "La superposición coloque páginas encima de su PDF base (como una marca de agua). El fondo coloque páginas detrás de su PDF base (como un membrete o fondo).",
+     "faqSinglePageQuestion": "¿Puedo usar un PDF de una sola página como superposición para todas las páginas?",
+     "faqSinglePageAnswer": "¡Sí! Active la opción \"Repetir\" y las páginas de superposición se repetirán en todas las páginas base. Una marca de agua de una página se aplicará a cada página.",
+     "faqPrivacyQuestion": "¿Mis archivos son privados y seguros?",
+@@ -1322,6 +1322,6 @@
+   },
+   "protectPdf": {
+     "name": "Proteger PDF",
+-    "subtitle": "Bloquea tu PDF agregando una contraseña."
++    "subtitle": "Bloquea su PDF agregando una contraseña."
+   }
+-}
++}
+\ No newline at end of file
+diff --git a/public/locales/es/ui.json b/public/locales/es/ui.json
+index 9095d8f..c3646ab 100644
+--- a/public/locales/es/ui.json
++++ b/public/locales/es/ui.json
+@@ -8,7 +8,7 @@
+   "- No XMP metadata found -": "- No se encontraron metadatos XMP -",
+   "- No interactive form fields found -": "- No se encontraron campos de formulario interactivos -",
+   "- No parseable XMP properties found -": "- No se encontraron propiedades XMP analizables -",
+-  "-- Select existing group --": "-- Selecciona un grupo existente --",
++  "-- Select existing group --": "-- Seleccione un grupo existente --",
+   "/ {{total}}": "/ {{total}}",
+   "0.1° (Very Sensitive)": "0.1° (Muy sensible)",
+   "0.5° (Default)": "0.5° (Predeterminado)",
+@@ -28,7 +28,7 @@
+   "72 (Screen)": "72 (Pantalla)",
+   "90° Clockwise": "90° en sentido horario",
+   "90° Counter-clockwise": "90° en sentido antihorario",
+-  "A field named \"{{fieldName}}\" already exists. Please rename this field to use a unique name before downloading.": "Ya existe un campo llamado \"{{fieldName}}\". Cambia el nombre de este campo para que sea único antes de descargar.",
++  "A field named \"{{fieldName}}\" already exists. Please rename this field to use a unique name before downloading.": "Ya existe un campo llamado \"{{fieldName}}\". Cambie el nombre de este campo para que sea único antes de descargar.",
+   "A new version of BentoPDF is available. Reload to update?": "Hay una nueva versión de BentoPDF disponible. ¿Recargar para actualizar?",
+   "A single PDF file": "Un solo archivo PDF",
+   "A template with this name already exists.": "Ya existe una plantilla con este nombre.",
+@@ -60,11 +60,11 @@
+   "Add More WPS Files": "Agregar más archivos WPS",
+   "Add More XML Files": "Agregar más archivos XML",
+   "Add More XPS Files": "Agregar más archivos XPS",
+-  "Add a new layer to get started!": "¡Agrega una capa nueva para empezar!",
++  "Add a new layer to get started!": "¡Agregue una capa nueva para empezar!",
+   "Add a text box": "Agregar un cuadro de texto",
+   "Add an RFC 3161 document timestamp": "Agregar una marca de tiempo de documento RFC 3161",
+   "Add an image": "Agregar una imagen",
+-  "Add at least one node to run the workflow.": "Agrega al menos un nodo para ejecutar el flujo de trabajo.",
++  "Add at least one node to run the workflow.": "Agregue al menos un nodo para ejecutar el flujo de trabajo.",
+   "Add child": "Agregar secundario",
+   "Add child layer": "Agregar capa secundaria",
+   "Add header and footer text": "Agregar texto de encabezado y pie de página",
+@@ -84,7 +84,7 @@
+   "Adding {{insertCount}} blank pages...": "Agregando {{insertCount}} páginas en blanco...",
+   "Adding {{name}} ({{n}}/{{length}})...": "Agregando {{name}} ({{n}}/{{length}})...",
+   "Adjust Colors": "Ajustar colores",
+-  "Adjust brightness, contrast, and colors": "Ajusta el brillo, el contraste y los colores",
++  "Adjust brightness, contrast, and colors": "Ajuste el brillo, el contraste y los colores",
+   "Advanced": "Avanzado",
+   "Advanced Feature Required": "Se requiere una función avanzada",
+   "Advanced Settings": "Ajustes avanzados",
+@@ -138,7 +138,7 @@
+   "Archive contains an oversized image entry.": "El archivo contiene una imagen demasiado grande.",
+   "Archive has too many images (max {{MAX_CBZ_PAGES}}).": "El archivo tiene demasiadas imágenes (máx. {{MAX_CBZ_PAGES}}).",
+   "Archive is too large when decompressed.": "El archivo es demasiado grande al descomprimirse.",
+-  "Are you sure you want to reset? All your work will be lost.": "¿Seguro que quieres restablecer? Perderás todo tu trabajo.",
++  "Are you sure you want to reset? All your work will be lost.": "¿Seguro que quiere restablecer? Perderás todo su trabajo.",
+   "Area (Coordinates)": "Área (coordenadas)",
+   "Area ({{unit}}²)": "Área ({{unit}}²)",
+   "Arial, Times New Roman and Courier New map to the built-in equivalents. Only applied when safe.": "Arial, Times New Roman y Courier New se asignan a sus equivalentes integrados. Solo se aplica cuando es seguro.",
+@@ -184,14 +184,14 @@
+   "Building new PDF...": "Creando nuevo PDF...",
+   "Building page pairing model...": "Creando el modelo de emparejamiento de páginas...",
+   "Button": "Botón",
+-  "ByteRange does not start at the beginning of the file": "ByteRange no comienza al principio del archivo",
++  "ByteRange does not start at the beginning of the file": "ByteRange no comience al principio del archivo",
+   "ByteRange out of bounds": "ByteRange fuera de los límites",
+   "CBZ to PDF": "CBZ a PDF",
+   "CSV Loaded": "CSV cargado",
+   "CSV file is empty": "El archivo CSV está vacío",
+   "Cancel": "Cancelar",
+   "Cannot Delete": "No se puede eliminar",
+-  "Cannot access viewer controls. Please use the Download button in the PDF viewer toolbar above.": "No se puede acceder a los controles del visor. Usa el botón Descargar de la barra de herramientas del visor de PDF de arriba.",
++  "Cannot access viewer controls. Please use the Download button in the PDF viewer toolbar above.": "No se puede acceder a los controles del visor. Use el botón Descargar de la barra de herramientas del visor de PDF de arriba.",
+   "Cannot delete all pages": "No se pueden eliminar todas las páginas",
+   "Cannot delete all pages.": "No se pueden eliminar todas las páginas.",
+   "Canvas context failed": "Falló el contexto del lienzo",
+@@ -209,19 +209,19 @@
+   "Changing text color...": "Cambiando el color del texto...",
+   "Character": "Carácter",
+   "Checked State": "Estado marcado",
+-  "Choose a valid page range.": "Elige un rango de páginas válido.",
+-  "Choose one of the bundled languages or rebuild the air-gapped bundle with the missing language added to --ocr-languages.": "Elige uno de los idiomas incluidos o reconstruye el paquete aislado con el idioma que falta agregado a --ocr-languages.",
++  "Choose a valid page range.": "Elija un rango de páginas válido.",
++  "Choose one of the bundled languages or rebuild the air-gapped bundle with the missing language added to --ocr-languages.": "Elija uno de los idiomas incluidos o reconstruye el paquete aislado con el idioma que falta agregado a --ocr-languages.",
+   "Cleanup": "Limpieza",
+-  "Click on PDF to Pick Location": "Haz clic en el PDF para elegir la ubicación",
+-  "Click the button above, then click on the PDF where you want the bookmark to jump to": "Haz clic en el botón de arriba y luego en el PDF donde quieras que salte el marcador",
+-  "Click to Upload Image": "Haz clic para subir una imagen",
++  "Click on PDF to Pick Location": "Haga clic en el PDF para elegir la ubicación",
++  "Click the button above, then click on the PDF where you want the bookmark to jump to": "Haga clic en el botón de arriba y luego en el PDF donde quieras que salte el marcador",
++  "Click to Upload Image": "Haga clic para subir una imagen",
+   "Clicking this field in the PDF will open a file picker to upload an image.": "Al hacer clic en este campo del PDF se abrirá un selector de archivos para subir una imagen.",
+   "Clip invisible parts of images": "Recortar las partes invisibles de las imágenes",
+   "Close": "Cerrar",
+   "Close (Esc)": "Cerrar (Esc)",
+   "Close panel": "Cerrar panel",
+-  "Closes tab": "Cierra la pestaña",
+-  "Closes window": "Cierra la ventana",
++  "Closes tab": "Cierre la pestaña",
++  "Closes window": "Cierre la ventana",
+   "Code 128": "Code 128",
+   "Code 39": "Code 39",
+   "CoherentPDF (Bookmarks & Metadata)": "CoherentPDF (marcadores y metadatos)",
+@@ -316,7 +316,7 @@
+   "Converting {{n}}/{{length}}: {{name}}...": "Convirtiendo {{n}}/{{length}}: {{name}}...",
+   "Converting...": "Convirtiendo...",
+   "Copied": "Copiado",
+-  "Could not access the stamped-PDF exporter. Please use the Export → PDF button in the viewer toolbar as a fallback.": "No se pudo acceder al exportador de PDF con sellos. Usa el botón Exportar → PDF de la barra de herramientas del visor como alternativa.",
++  "Could not access the stamped-PDF exporter. Please use the Export → PDF button in the viewer toolbar as a fallback.": "No se pudo acceder al exportador de PDF con sellos. Use el botón Exportar → PDF de la barra de herramientas del visor como alternativa.",
+   "Could not add blank page.": "No se pudo agregar la página en blanco.",
+   "Could not add blank pages.": "No se pudieron agregar las páginas en blanco.",
+   "Could not add header or footer.": "No se pudo agregar el encabezado o el pie de página.",
+@@ -335,7 +335,7 @@
+   "Could not display the page.": "No se pudo mostrar la página.",
+   "Could not export comparison PDF.": "No se pudo exportar el PDF de comparación.",
+   "Could not export the signed PDF. Please try again.": "No se pudo exportar el PDF firmado. Inténtalo de nuevo.",
+-  "Could not export the stamped PDF. Please use the Export → PDF button in the viewer toolbar as a fallback.": "No se pudo exportar el PDF con sellos. Usa el botón Exportar → PDF de la barra de herramientas del visor como alternativa.",
++  "Could not export the stamped PDF. Please use the Export → PDF button in the viewer toolbar as a fallback.": "No se pudo exportar el PDF con sellos. Use el botón Exportar → PDF de la barra de herramientas del visor como alternativa.",
+   "Could not extract signer public key": "No se pudo extraer la clave pública del firmante",
+   "Could not find {{testFile}} at the specified URL (HTTP {{status}}). Make sure the file exists.": "No se encontró {{testFile}} en la URL indicada (HTTP {{status}}). Comprueba que el archivo exista.",
+   "Could not fully analyze the PDF. It may be corrupted or have an unusual structure.": "No se pudo analizar el PDF por completo. Puede estar dañado o tener una estructura poco común.",
+@@ -353,7 +353,7 @@
+   "Could not remove blank pages.": "No se pudieron eliminar las páginas en blanco.",
+   "Could not remove leftover data from the PDF.": "No se pudieron eliminar los datos residuales del PDF.",
+   "Could not remove the redacted text from the document data, so the file was not downloaded.": "No se pudo eliminar el texto redactado de los datos del documento, por lo que el archivo no se descargó.",
+-  "Could not reverse the PDF pages. Please check that your files are valid PDFs.": "No se pudieron invertir las páginas del PDF. Comprueba que tus archivos sean PDF válidos.",
++  "Could not reverse the PDF pages. Please check that your files are valid PDFs.": "No se pudieron invertir las páginas del PDF. Comprueba que sus archivos sean PDF válidos.",
+   "Could not update metadata. Please check that date formats are correct.": "No se pudieron actualizar los metadatos. Comprueba que los formatos de fecha sean correctos.",
+   "Count": "Cantidad",
+   "Courier": "Courier",
+@@ -373,7 +373,7 @@
+   "Creating table...": "Creando tabla...",
+   "Creator": "Creador",
+   "Crop": "Recortar",
+-  "Crop complete! Your download has started.": "¡Recorte completado! Tu descarga ha comenzado.",
++  "Crop complete! Your download has started.": "¡Recorte completado! Su descarga ha comenzado.",
+   "Cryptographic verification failed": "Falló la verificación criptográfica",
+   "Custom": "Personalizado",
+   "Custom Format": "Formato personalizado",
+@@ -428,8 +428,8 @@
+   "Downloaded {{length}} PDF files in a ZIP archive.": "Se descargaron {{length}} archivos PDF en un archivo ZIP.",
+   "Downloads started for all files.": "Se iniciaron las descargas de todos los archivos.",
+   "Dpi": "PPP",
+-  "Drag to reorder": "Arrastra para reordenar",
+-  "Drops tagging, which screen readers rely on.": "Elimina el etiquetado, en el que se basan los lectores de pantalla.",
++  "Drag to reorder": "Arrastre para reordenar",
++  "Drops tagging, which screen readers rely on.": "Elimine el etiquetado, en el que se basan los lectores de pantalla.",
+   "Duplicate Field Name": "Nombre de campo duplicado",
+   "Duplicate Field Names": "Nombres de campo duplicados",
+   "Duplicate Page": "Duplicar página",
+@@ -445,7 +445,7 @@
+   "Edit Bookmarks": "Editar marcadores",
+   "Edit Images": "Editar imágenes",
+   "Edit Metadata": "Editar metadatos",
+-  "Edit PDF metadata": "Edita los metadatos del PDF",
++  "Edit PDF metadata": "Edite los metadatos del PDF",
+   "Edit Scope": "Alcance de edición",
+   "Edit Shapes": "Editar formas",
+   "Edit Text": "Editar texto",
+@@ -462,12 +462,12 @@
+   "Encryption Failed": "Falló el cifrado",
+   "Encryption resulted in an empty file.": "El cifrado dio como resultado un archivo vacío.",
+   "End": "Final",
+-  "Enter 0 to insert at the beginning, or {{pageCount}} to insert at the end.": "Introduce 0 para insertar al principio, o {{pageCount}} para insertar al final.",
+-  "Enter bookmark title": "Introduce el título del marcador",
+-  "Enter name for child layer under \"{{Layer}}\":": "Introduce el nombre de la capa secundaria bajo \"{{Layer}}\":",
+-  "Enter password": "Introduce la contraseña",
+-  "Enter password...": "Introduce la contraseña...",
+-  "Enter passwords for each encrypted file": "Introduce las contraseñas de cada archivo cifrado",
++  "Enter 0 to insert at the beginning, or {{pageCount}} to insert at the end.": "Introduzca 0 para insertar al principio, o {{pageCount}} para insertar al final.",
++  "Enter bookmark title": "Introduzca el título del marcador",
++  "Enter name for child layer under \"{{Layer}}\":": "Introduzca el nombre de la capa secundaria bajo \"{{Layer}}\":",
++  "Enter password": "Introduzca la contraseña",
++  "Enter password...": "Introduzca la contraseña...",
++  "Enter passwords for each encrypted file": "Introduzca las contraseñas de cada archivo cifrado",
+   "Error": "Error",
+   "Error during execution": "Error durante la ejecución",
+   "Error generating PDF: {{error}}": "Error al generar el PDF: {{error}}",
+@@ -540,7 +540,7 @@
+   "Failed to create split PDFs.": "No se pudieron crear los PDF divididos.",
+   "Failed to decode image: {{name}}": "No se pudo decodificar la imagen: {{name}}",
+   "Failed to decrypt private key": "No se pudo descifrar la clave privada",
+-  "Failed to decrypt. Try the Decrypt tool instead.": "No se pudo descifrar. Prueba con la herramienta Descifrar.",
++  "Failed to decrypt. Try the Decrypt tool instead.": "No se pudo descifrar. Pruebe con la herramienta Descifrar.",
+   "Failed to delete layer": "No se pudo eliminar la capa",
+   "Failed to delete pages.": "No se pudieron eliminar las páginas.",
+   "Failed to deskew PDF: {{error}}": "No se pudo enderezar el PDF: {{error}}",
+@@ -571,11 +571,11 @@
+   "Failed to load files: {{error}}": "No se pudieron cargar los archivos: {{error}}",
+   "Failed to load image.": "No se pudo cargar la imagen.",
+   "Failed to load image: {{filename}}": "No se pudo cargar la imagen: {{filename}}",
+-  "Failed to load one or more PDF files.": "No se pudieron cargar uno o más archivos PDF.",
++  "Failed to load one or more PDF files.": "No se pudo abrir uno de los archivos: puede que no sea un PDF o que esté dañado. Vuelva a intentarlo sin ese archivo.",
+   "Failed to load script: {{url}}": "No se pudo cargar el script: {{url}}",
+   "Failed to load template.": "No se pudo cargar la plantilla.",
+   "Failed to load the PDF Editor.": "No se pudo cargar el Editor PDF.",
+-  "Failed to load the image processor. Please ensure your browser supports SharedArrayBuffer (requires HTTPS or localhost).": "No se pudo cargar el procesador de imágenes. Asegúrate de que tu navegador sea compatible con SharedArrayBuffer (requiere HTTPS o localhost).",
++  "Failed to load the image processor. Please ensure your browser supports SharedArrayBuffer (requires HTTPS or localhost).": "No se pudo cargar el procesador de imágenes. Asegúrese de que su navegador sea compatible con SharedArrayBuffer (requiere HTTPS o localhost).",
+   "Failed to parse CSV: {{error}}": "No se pudo analizar el CSV: {{error}}",
+   "Failed to parse signature": "No se pudo analizar la firma",
+   "Failed to parse the certificate file.": "No se pudo analizar el archivo de certificado.",
+@@ -589,19 +589,19 @@
+   "Failed to render page.": "No se pudo renderizar la página.",
+   "Failed to save changes.": "No se pudieron guardar los cambios.",
+   "Failed to save the new PDF. Check console for details.": "No se pudo guardar el nuevo PDF. Consulta la consola para más detalles.",
+-  "Failed to split PDF. Please check your selection.": "No se pudo dividir el PDF. Comprueba tu selección.",
+-  "Failed to timestamp PDF: {{message}}\n\nPlease try a different TSA server or check your internet connection.": "No se pudo sellar el PDF con marca de tiempo: {{message}}\n\nPrueba con otro servidor TSA o comprueba tu conexión a internet.",
++  "Failed to split PDF. Please check your selection.": "No se pudo dividir el PDF. Comprueba su selección.",
++  "Failed to timestamp PDF: {{message}}\n\nPlease try a different TSA server or check your internet connection.": "No se pudo sellar el PDF con marca de tiempo: {{message}}\n\nPruebe con otro servidor TSA o comprueba su conexión a internet.",
+   "Failed to toggle layer visibility": "No se pudo cambiar la visibilidad de la capa",
+   "Failed to validate signatures. The file may be corrupted.": "No se pudieron validar las firmas. El archivo puede estar dañado.",
+   "Features enabled by this module:": "Funciones habilitadas por este módulo:",
+   "Field Name": "Nombre de campo",
+   "Field Name (Group Name)": "Nombre de campo (Nombre del grupo)",
+   "Field Name Conflict": "Conflicto de nombre de campo",
+-  "Field name \"{{newName}}\" already exists in this {{value}}. Please try using a unique name.": "El nombre de campo \"{{newName}}\" ya existe en este {{value}}. Prueba con un nombre único.",
++  "Field name \"{{newName}}\" already exists in this {{value}}. Please try using a unique name.": "El nombre de campo \"{{newName}}\" ya existe en este {{value}}. Pruebe con un nombre único.",
+   "Field name cannot be empty": "El nombre del campo no puede estar vacío",
+   "File": "Archivo",
+   "File Size": "Tamaño del archivo",
+-  "File exists but could not be read. Check CORS configuration.": "El archivo existe pero no se pudo leer. Revisa la configuración de CORS.",
++  "File exists but could not be read. Check CORS configuration.": "El archivo existe pero no se pudo leer. Revise la configuración de CORS.",
+   "File list not found": "No se encontró la lista de archivos",
+   "File size reduced from {{originalSize}} to {{compressedSize}} (Saved {{percent}}%).": "El tamaño del archivo se redujo de {{originalSize}} a {{compressedSize}} (ahorro del {{percent}}%).",
+   "File {{n}}/{{length}}: Page {{n2}}/{{pageCount}}": "Archivo {{n}}/{{length}}: página {{n2}}/{{pageCount}}",
+@@ -612,7 +612,7 @@
+   "Fill Color": "Color de relleno",
+   "Finalizing PDF...": "Finalizando PDF...",
+   "Find & replace": "Buscar y reemplazar",
+-  "Finds the best quality under this size. 0 means no target.": "Busca la mejor calidad por debajo de este tamaño. 0 significa sin objetivo.",
++  "Finds the best quality under this size. 0 means no target.": "Busque la mejor calidad por debajo de este tamaño. 0 significa sin objetivo.",
+   "Firefox and Chrome may show their native date picker format during selection. The correct format will apply when you finish entering the date.": "Firefox y Chrome pueden mostrar su propio formato de selector de fecha al elegir. El formato correcto se aplicará cuando termines de introducir la fecha.",
+   "First Indent": "Sangría de primera línea",
+   "Fit (keep full page visible)": "Ajustar (mantener la página completa visible)",
+@@ -644,7 +644,7 @@
+   "For image-only PDFs such as scans. Skipped when the document has selectable text, unless Override content protection is on.": "Para PDF solo de imágenes, como los escaneos. Se omite cuando el documento tiene texto seleccionable, salvo que \"Anular protección de contenido\" esté activada.",
+   "Form fields stop being fillable.": "Los campos de formulario dejan de poder rellenarse.",
+   "Format": "Formato",
+-  "Found {{length}} blank page(s). Click on a page to deselect it.": "Se encontraron {{length}} páginas en blanco. Haz clic en una página para deseleccionarla.",
++  "Found {{length}} blank page(s). Click on a page to deselect it.": "Se encontraron {{length}} páginas en blanco. Haga clic en una página para deseleccionarla.",
+   "Found {{length}} existing bookmarks. Replace current bookmarks?": "Se encontraron {{length}} marcadores existentes. ¿Reemplazar los marcadores actuales?",
+   "Found {{length}} image(s) in {{length2}} PDF(s).": "Se encontraron {{length}} imágenes en {{length2}} PDF.",
+   "Front": "Anverso",
+@@ -662,7 +662,7 @@
+   "Ghostscript did not produce output file": "Ghostscript no generó el archivo de salida",
+   "Ghostscript is not configured. Please configure it in Advanced Settings.": "Ghostscript no está configurado. Configúralo en los ajustes avanzados.",
+   "Ghostscript is not configured. Please configure it in WASM Settings.": "Ghostscript no está configurado. Configúralo en los ajustes de WASM.",
+-  "Ghostscript is not configured. PyMuPDF requires Ghostscript for some operations. Please configure both in Advanced Settings.": "Ghostscript no está configurado. PyMuPDF requiere Ghostscript para algunas operaciones. Configura ambos en los ajustes avanzados.",
++  "Ghostscript is not configured. PyMuPDF requires Ghostscript for some operations. Please configure both in Advanced Settings.": "Ghostscript no está configurado. PyMuPDF requiere Ghostscript para algunas operaciones. Configure ambos en los ajustes avanzados.",
+   "Ghostscript threw an exception: {{e}}": "Ghostscript lanzó una excepción: {{e}}",
+   "Ghostscript wrapper did not expose expected interface. Expected loadGS() or GhostscriptWASM class.": "El wrapper de Ghostscript no expuso la interfaz esperada. Se esperaba loadGS() o la clase GhostscriptWASM.",
+   "Go": "Ir",
+@@ -674,7 +674,7 @@
+   "Group Name (Must be same for group)": "Nombre del grupo (debe ser el mismo para el grupo)",
+   "H-Scale %": "Escala H %",
+   "Hanging Indent": "Sangría francesa",
+-  "Hard reloads page": "Recarga la página por completo",
++  "Hard reloads page": "Recargue la página por completo",
+   "Header & Footer": "Encabezado y pie de página",
+   "Header & Footer added successfully!": "¡Encabezado y pie de página agregados correctamente!",
+   "Header Center": "Encabezado centro",
+@@ -743,7 +743,7 @@
+   "Invalid Signature": "Firma no válida",
+   "Invalid TSA URL. The timestamp authority must be a valid http:// or https:// URL.": "URL de TSA no válida. La autoridad de marcas de tiempo debe ser una URL http:// o https:// válida.",
+   "Invalid URL": "URL no válida",
+-  "Invalid URL format. Please enter a valid URL (e.g., https://example.com/wasm/)": "Formato de URL no válido. Introduce una URL válida (p. ej., https://example.com/wasm/)",
++  "Invalid URL format. Please enter a valid URL (e.g., https://example.com/wasm/)": "Formato de URL no válido. Introduzca una URL válida (p. ej., https://example.com/wasm/)",
+   "Invalid XML: no root element": "XML no válido: no hay elemento raíz",
+   "Invalid data": "Datos no válidos",
+   "Invalid hex string in content stream": "Cadena hexadecimal no válida en el flujo de contenido",
+@@ -756,7 +756,7 @@
+   "Issuer": "Emisor",
+   "It fits the {{targetBytes}} target.": "Cumple el objetivo de {{targetBytes}}.",
+   "It is still above the {{targetBytes}} target because Preserve PDF/A limits how far it can be compressed.": "Sigue por encima del objetivo de {{targetBytes}} porque Conservar PDF/A limita cuánto se puede comprimir.",
+-  "It no longer claims PDF/A conformance. Turn on Preserve PDF/A under Custom Settings to keep it.": "Ya no declara conformidad con PDF/A. Activa Conservar PDF/A en Ajustes personalizados para mantenerla.",
++  "It no longer claims PDF/A conformance. Turn on Preserve PDF/A under Custom Settings to keep it.": "Ya no declara conformidad con PDF/A. Active Conservar PDF/A en Ajustes personalizados para mantenerla.",
+   "Italic": "Cursiva",
+   "Item 1": "Elemento 1",
+   "Its digital signatures were removed so it could be compressed. Sign it again if needed.": "Se eliminaron sus firmas digitales para poder comprimirlo. Fírmalo de nuevo si es necesario.",
+@@ -793,8 +793,8 @@
+   "Load system fonts": "Cargar fuentes del sistema",
+   "Load system fonts…": "Cargar fuentes del sistema…",
+   "Loaded": "Cargado",
+-  "Loaded bookmarks from JSON. Now upload your PDF.": "Marcadores cargados desde JSON. Ahora sube tu PDF.",
+-  "Loaded {{length}} bookmarks from CSV. Now upload your PDF.": "Se cargaron {{length}} marcadores desde CSV. Ahora sube tu PDF.",
++  "Loaded bookmarks from JSON. Now upload your PDF.": "Marcadores cargados desde JSON. Ahora suba su PDF.",
++  "Loaded {{length}} bookmarks from CSV. Now upload your PDF.": "Se cargaron {{length}} marcadores desde CSV. Ahora suba su PDF.",
+   "Loading Engine...": "Cargando motor...",
+   "Loading Ghostscript...": "Cargando Ghostscript...",
+   "Loading PDF Editor...": "Cargando Editor PDF...",
+@@ -899,7 +899,7 @@
+   "No existing bookmarks found in this PDF.": "No se encontraron marcadores existentes en este PDF.",
+   "No items were selected for removal or none were found in the PDF.": "No se seleccionó ningún elemento para eliminar o no se encontró ninguno en el PDF.",
+   "No page pairs to export.": "No hay pares de páginas que exportar.",
+-  "No pages found. Please create a blank PDF or upload one.": "No se encontraron páginas. Crea un PDF en blanco o sube uno.",
++  "No pages found. Please create a blank PDF or upload one.": "No se encontraron páginas. Cree un PDF en blanco o suba uno.",
+   "No pages selected for removal.": "No se seleccionó ninguna página para eliminar.",
+   "No pages were selected for splitting.": "No se seleccionó ninguna página para dividir.",
+   "No paired page for this side.": "No hay página emparejada para este lado.",
+@@ -931,12 +931,12 @@
+   "One PDF per page": "Un PDF por página",
+   "One PDF per range": "Un PDF por rango",
+   "Only a substitute font was available": "Solo había una fuente sustituta disponible",
+-  "Only where it does not change how the image looks.": "Solo donde no cambia el aspecto de la imagen.",
++  "Only where it does not change how the image looks.": "Solo donde no cambie el aspecto de la imagen.",
+   "Opacity": "Opacidad",
+   "Open URL": "Abrir URL",
+-  "Opens incognito window": "Abre una ventana de incógnito",
+-  "Opens new tab": "Abre una pestaña nueva",
+-  "Opens new window": "Abre una ventana nueva",
++  "Opens incognito window": "Abra una ventana de incógnito",
++  "Opens new tab": "Abra una pestaña nueva",
++  "Opens new window": "Abra una ventana nueva",
+   "Operation Failed": "Falló la operación",
+   "Operation resulted in an empty file.": "La operación dio como resultado un archivo vacío.",
+   "Optimize PDF for fast web viewing": "Optimiza el PDF para verlo rápido en la web",
+@@ -961,7 +961,7 @@
+   "PDF converted to greyscale successfully!": "¡PDF convertido a escala de grises correctamente!",
+   "PDF created successfully!": "¡PDF creado correctamente!",
+   "PDF decrypted successfully! All encryption and restrictions removed.": "¡PDF descifrado correctamente! Se eliminaron todo el cifrado y las restricciones.",
+-  "PDF decrypted successfully! Your download has started.": "¡PDF descifrado correctamente! Tu descarga ha comenzado.",
++  "PDF decrypted successfully! Your download has started.": "¡PDF descifrado correctamente! Su descarga ha comenzado.",
+   "PDF downloaded successfully.": "PDF descargado correctamente.",
+   "PDF encrypted successfully with 256-bit AES!": "¡PDF cifrado correctamente con AES de 256 bits!",
+   "PDF has been sanitized and downloaded.": "El PDF se saneó y se descargó.",
+@@ -1044,74 +1044,74 @@
+   "Password protected": "Protegido con contraseña",
+   "Password required for encrypted private key": "Se requiere contraseña para la clave privada cifrada",
+   "Path Stroke": "Trazo del contorno",
+-  "Please add at least one field before downloading.": "Agrega al menos un campo antes de descargar.",
+-  "Please draw a rectangle on at least one page to select the crop area.": "Dibuja un rectángulo en al menos una página para seleccionar el área de recorte.",
+-  "Please ensure all page numbers in the order are unique.": "Asegúrate de que todos los números de página del orden sean únicos.",
+-  "Please enter a layer name": "Introduce un nombre de capa",
+-  "Please enter a name.": "Introduce un nombre.",
+-  "Please enter a number between 0 and {{totalPages}}.": "Introduce un número entre 0 y {{totalPages}}.",
+-  "Please enter a page order.": "Introduce un orden de páginas.",
+-  "Please enter a password": "Introduce una contraseña",
+-  "Please enter a password for {{i}} or skip it": "Introduce una contraseña para {{i}} u omítelo",
+-  "Please enter a title.": "Introduce un título.",
+-  "Please enter a user password.": "Introduce una contraseña de usuario.",
+-  "Please enter a valid number of pages (1 or more).": "Introduce un número de páginas válido (1 o más).",
+-  "Please enter a valid page number between 1 and {{total}}": "Introduce un número de página válido entre 1 y {{total}}",
+-  "Please enter a valid page range (e.g., 1-5, 8, 11-13).": "Introduce un rango de páginas válido (p. ej., 1-5, 8, 11-13).",
+-  "Please enter page numbers to extract.": "Introduce los números de página que quieres extraer.",
+-  "Please enter positive numbers.": "Introduce números positivos.",
+-  "Please enter some text to convert.": "Introduce algo de texto para convertir.",
+-  "Please enter text for the watermark.": "Introduce el texto de la marca de agua.",
+-  "Please enter the PDF password.": "Introduce la contraseña del PDF.",
++  "Please add at least one field before downloading.": "Agregue al menos un campo antes de descargar.",
++  "Please draw a rectangle on at least one page to select the crop area.": "Dibuje un rectángulo en al menos una página para seleccionar el área de recorte.",
++  "Please ensure all page numbers in the order are unique.": "Asegúrese de que todos los números de página del orden sean únicos.",
++  "Please enter a layer name": "Introduzca un nombre de capa",
++  "Please enter a name.": "Introduzca un nombre.",
++  "Please enter a number between 0 and {{totalPages}}.": "Introduzca un número entre 0 y {{totalPages}}.",
++  "Please enter a page order.": "Introduzca un orden de páginas.",
++  "Please enter a password": "Introduzca una contraseña",
++  "Please enter a password for {{i}} or skip it": "Introduzca una contraseña para {{i}} u omítelo",
++  "Please enter a title.": "Introduzca un título.",
++  "Please enter a user password.": "Introduzca una contraseña de usuario.",
++  "Please enter a valid number of pages (1 or more).": "Introduzca un número de páginas válido (1 o más).",
++  "Please enter a valid page number between 1 and {{total}}": "Introduzca un número de página válido entre 1 y {{total}}",
++  "Please enter a valid page range (e.g., 1-5, 8, 11-13).": "Introduzca un rango de páginas válido (p. ej., 1-5, 8, 11-13).",
++  "Please enter page numbers to extract.": "Introduzca los números de página que quiere extraer.",
++  "Please enter positive numbers.": "Introduzca números positivos.",
++  "Please enter some text to convert.": "Introduzca algo de texto para convertir.",
++  "Please enter text for the watermark.": "Introduzca el texto de la marca de agua.",
++  "Please enter the PDF password.": "Introduzca la contraseña del PDF.",
+   "Please load a PDF first.": "Carga un PDF primero.",
+-  "Please select PDF files to create a ZIP archive.": "Selecciona archivos PDF para crear un archivo ZIP.",
+-  "Please select a .pem, .crt, .cer, or .der certificate file.": "Selecciona un archivo de certificado .pem, .crt, .cer o .der.",
+-  "Please select a PDF file.": "Selecciona un archivo PDF.",
+-  "Please select a valid PDF file.": "Selecciona un archivo PDF válido.",
+-  "Please select an area on at least one page to crop.": "Selecciona un área en al menos una página para recortar.",
+-  "Please select an area to crop first.": "Selecciona primero un área para recortar.",
+-  "Please select an area to crop.": "Selecciona un área para recortar.",
+-  "Please select an image file for the watermark.": "Selecciona un archivo de imagen para la marca de agua.",
+-  "Please select at least one BMP file.": "Selecciona al menos un archivo BMP.",
+-  "Please select at least one CSV file.": "Selecciona al menos un archivo CSV.",
+-  "Please select at least one Excel file.": "Selecciona al menos un archivo de Excel.",
+-  "Please select at least one HEIC file.": "Selecciona al menos un archivo HEIC.",
+-  "Please select at least one JPG file.": "Selecciona al menos un archivo JPG.",
+-  "Please select at least one JPG or JPEG2000 image.": "Selecciona al menos una imagen JPG o JPEG2000.",
+-  "Please select at least one ODT file.": "Selecciona al menos un archivo ODT.",
+-  "Please select at least one PDF file.": "Selecciona al menos un archivo PDF.",
+-  "Please select at least one PowerPoint file.": "Selecciona al menos un archivo de PowerPoint.",
+-  "Please select at least one RTF file.": "Selecciona al menos un archivo RTF.",
+-  "Please select at least one SVG file.": "Selecciona al menos un archivo SVG.",
+-  "Please select at least one TIFF file.": "Selecciona al menos un archivo TIFF.",
+-  "Please select at least one Word document.": "Selecciona al menos un documento de Word.",
+-  "Please select at least one file to attach.": "Selecciona al menos un archivo para adjuntar.",
+-  "Please select at least one image file.": "Selecciona al menos un archivo de imagen.",
+-  "Please select at least one text file.": "Selecciona al menos un archivo de texto.",
+-  "Please select at least one {{FILETYPE_NAME}} file.": "Selecciona al menos un archivo {{FILETYPE_NAME}}.",
+-  "Please select at least one {{TOOL_NAME}} file (.eml or .msg).": "Selecciona al menos un archivo {{TOOL_NAME}} (.eml o .msg).",
+-  "Please select at least one {{TOOL_NAME}} file.": "Selecciona al menos un archivo {{TOOL_NAME}}.",
+-  "Please select even or odd pages.": "Selecciona páginas pares o impares.",
+-  "Please select one or more PDF files.": "Selecciona uno o más archivos PDF.",
+-  "Please select pages to delete.": "Selecciona las páginas que quieres eliminar.",
+-  "Please select pages to duplicate.": "Selecciona las páginas que quieres duplicar.",
+-  "Please select pages to mark for splitting.": "Selecciona las páginas que quieres marcar para dividir.",
+-  "Please select pages to rotate.": "Selecciona las páginas que quieres rotar.",
+-  "Please specify a page range for page-level attachments.": "Especifica un rango de páginas para los adjuntos a nivel de página.",
+-  "Please upload PDF files.": "Sube archivos PDF.",
+-  "Please upload PDFs first.": "Sube primero los PDF.",
+-  "Please upload a .docx file first.": "Sube primero un archivo .docx.",
+-  "Please upload a PDF file first.": "Sube primero un archivo PDF.",
+-  "Please upload a PDF file.": "Sube un archivo PDF.",
+-  "Please upload a PDF first.": "Sube primero un PDF.",
+-  "Please upload a valid PDF file.": "Sube un archivo PDF válido.",
+-  "Please upload at least one PDF file.": "Sube al menos un archivo PDF.",
+-  "Please upload at least two PDF files to alternate and mix.": "Sube al menos dos archivos PDF para alternar y mezclar.",
+-  "Please upload both a base PDF and an overlay/underlay PDF.": "Sube un PDF base y un PDF de superposición o subposición.",
+-  "Please upload valid PDF files.": "Sube archivos PDF válidos.",
+-  "Please use the Download button in the PDF viewer toolbar above.": "Usa el botón Descargar de la barra de herramientas del visor de PDF de arriba.",
+-  "Please wait for the PDF viewer to load.": "Espera a que se cargue el visor de PDF.",
+-  "Please wait for the form to finish loading.": "Espera a que termine de cargarse el formulario.",
++  "Please select PDF files to create a ZIP archive.": "Seleccione archivos PDF para crear un archivo ZIP.",
++  "Please select a .pem, .crt, .cer, or .der certificate file.": "Seleccione un archivo de certificado .pem, .crt, .cer o .der.",
++  "Please select a PDF file.": "Seleccione un archivo PDF.",
++  "Please select a valid PDF file.": "Seleccione un archivo PDF válido.",
++  "Please select an area on at least one page to crop.": "Seleccione un área en al menos una página para recortar.",
++  "Please select an area to crop first.": "Seleccione primero un área para recortar.",
++  "Please select an area to crop.": "Seleccione un área para recortar.",
++  "Please select an image file for the watermark.": "Seleccione un archivo de imagen para la marca de agua.",
++  "Please select at least one BMP file.": "Seleccione al menos un archivo BMP.",
++  "Please select at least one CSV file.": "Seleccione al menos un archivo CSV.",
++  "Please select at least one Excel file.": "Seleccione al menos un archivo de Excel.",
++  "Please select at least one HEIC file.": "Seleccione al menos un archivo HEIC.",
++  "Please select at least one JPG file.": "Seleccione al menos un archivo JPG.",
++  "Please select at least one JPG or JPEG2000 image.": "Seleccione al menos una imagen JPG o JPEG2000.",
++  "Please select at least one ODT file.": "Seleccione al menos un archivo ODT.",
++  "Please select at least one PDF file.": "Seleccione al menos un archivo PDF.",
++  "Please select at least one PowerPoint file.": "Seleccione al menos un archivo de PowerPoint.",
++  "Please select at least one RTF file.": "Seleccione al menos un archivo RTF.",
++  "Please select at least one SVG file.": "Seleccione al menos un archivo SVG.",
++  "Please select at least one TIFF file.": "Seleccione al menos un archivo TIFF.",
++  "Please select at least one Word document.": "Seleccione al menos un documento de Word.",
++  "Please select at least one file to attach.": "Seleccione al menos un archivo para adjuntar.",
++  "Please select at least one image file.": "Seleccione al menos un archivo de imagen.",
++  "Please select at least one text file.": "Seleccione al menos un archivo de texto.",
++  "Please select at least one {{FILETYPE_NAME}} file.": "Seleccione al menos un archivo {{FILETYPE_NAME}}.",
++  "Please select at least one {{TOOL_NAME}} file (.eml or .msg).": "Seleccione al menos un archivo {{TOOL_NAME}} (.eml o .msg).",
++  "Please select at least one {{TOOL_NAME}} file.": "Seleccione al menos un archivo {{TOOL_NAME}}.",
++  "Please select even or odd pages.": "Seleccione páginas pares o impares.",
++  "Please select one or more PDF files.": "Seleccione uno o más archivos PDF.",
++  "Please select pages to delete.": "Seleccione las páginas que quiere eliminar.",
++  "Please select pages to duplicate.": "Seleccione las páginas que quiere duplicar.",
++  "Please select pages to mark for splitting.": "Seleccione las páginas que quiere marcar para dividir.",
++  "Please select pages to rotate.": "Seleccione las páginas que quiere rotar.",
++  "Please specify a page range for page-level attachments.": "Especifique un rango de páginas para los adjuntos a nivel de página.",
++  "Please upload PDF files.": "Suba archivos PDF.",
++  "Please upload PDFs first.": "Suba primero los PDF.",
++  "Please upload a .docx file first.": "Suba primero un archivo .docx.",
++  "Please upload a PDF file first.": "Suba primero un archivo PDF.",
++  "Please upload a PDF file.": "Suba un archivo PDF.",
++  "Please upload a PDF first.": "Suba primero un PDF.",
++  "Please upload a valid PDF file.": "Suba un archivo PDF válido.",
++  "Please upload at least one PDF file.": "Suba al menos un archivo PDF.",
++  "Please upload at least two PDF files to alternate and mix.": "Suba al menos dos archivos PDF para alternar y mezclar.",
++  "Please upload both a base PDF and an overlay/underlay PDF.": "Suba un PDF base y un PDF de superposición o subposición.",
++  "Please upload valid PDF files.": "Suba archivos PDF válidos.",
++  "Please use the Download button in the PDF viewer toolbar above.": "Use el botón Descargar de la barra de herramientas del visor de PDF de arriba.",
++  "Please wait for the PDF viewer to load.": "Espere a que se cargue el visor de PDF.",
++  "Please wait for the form to finish loading.": "Espere a que termine de cargarse el formulario.",
+   "Portrait": "Vertical",
+   "Position": "Posición",
+   "Post-processing for transparency compliance...": "Posprocesamiento para cumplir con la transparencia...",
+@@ -1165,7 +1165,7 @@
+   "PyMuPDF: not configured.": "PyMuPDF: no configurado.",
+   "QR Code": "Código QR",
+   "Quality": "Calidad",
+-  "Quits application (cannot be overridden)": "Cierra la aplicación (no se puede anular)",
++  "Quits application (cannot be overridden)": "Cierre la aplicación (no se puede anular)",
+   "RSA-PKCS1 signature does not verify against signer public key": "La firma RSA-PKCS1 no se verifica con la clave pública del firmante",
+   "RSA-PSS signature does not verify against signer public key": "La firma RSA-PSS no se verifica con la clave pública del firmante",
+   "Rasterization Complete": "Rasterización completada",
+@@ -1198,7 +1198,7 @@
+   "Reduce PDF file size": "Reduce el tamaño del archivo PDF",
+   "Reduce color complexity": "Reducir la complejidad del color",
+   "Reduces file size by removing color information.": "Reduce el tamaño del archivo eliminando la información de color.",
+-  "Reloads page": "Recarga la página",
++  "Reloads page": "Recargue la página",
+   "Remove": "Quitar",
+   "Remove All Attachments": "Quitar todos los adjuntos",
+   "Remove Annotations": "Eliminar anotaciones",
+@@ -1216,13 +1216,13 @@
+   "Remove application data": "Quitar datos de la aplicación",
+   "Remove article threads": "Quitar hilos de artículos",
+   "Remove attachment": "Quitar adjunto",
+-  "Remove blank pages automatically": "Elimina las páginas en blanco automáticamente",
++  "Remove blank pages automatically": "Elimine las páginas en blanco automáticamente",
+   "Remove document structure tree": "Quitar el árbol de estructura del documento",
+   "Remove file": "Quitar archivo",
+-  "Remove metadata, scripts, and hidden data": "Elimina metadatos, scripts y datos ocultos",
++  "Remove metadata, scripts, and hidden data": "Elimine metadatos, scripts y datos ocultos",
+   "Remove output intents": "Quitar intenciones de salida",
+   "Remove page thumbnails": "Quitar miniaturas de página",
+-  "Remove specific pages": "Elimina páginas específicas",
++  "Remove specific pages": "Elimine páginas específicas",
+   "Remove web capture information": "Quitar información de captura web",
+   "Remove {{name}}": "Quitar {{name}}",
+   "Removed \"{{beforeText}}\"": "Se quitó \"{{beforeText}}\"",
+@@ -1286,12 +1286,12 @@
+   "Search Text": "Buscar texto",
+   "Search languages...": "Buscar idiomas...",
+   "Select Font": "Seleccionar fuente",
+-  "Select a field to edit properties": "Selecciona un campo para editar sus propiedades",
+-  "Select a field...": "Selecciona un campo...",
+-  "Select to add this button to an existing group": "Selecciona para agregar este botón a un grupo existente",
++  "Select a field to edit properties": "Seleccione un campo para editar sus propiedades",
++  "Select a field...": "Seleccione un campo...",
++  "Select to add this button to an existing group": "Seleccione para agregar este botón a un grupo existente",
+   "Selected Option": "Opción seleccionada",
+   "Self-Signed: Signer Identity Not Verified": "Autofirmado: no se verificó la identidad del firmante",
+-  "Self-hosted OCR assets are partially configured. Set {{missing}} together with the other Tesseract asset URLs.": "Los recursos de OCR autoalojados están configurados parcialmente. Define {{missing}} junto con las demás URL de recursos de Tesseract.",
++  "Self-hosted OCR assets are partially configured. Set {{missing}} together with the other Tesseract asset URLs.": "Los recursos de OCR autoalojados están configurados parcialmente. Defina {{missing}} junto con las demás URL de recursos de Tesseract.",
+   "Separator": "Separador",
+   "Separator Color": "Color del separador",
+   "Separator Thickness": "Grosor del separador",
+@@ -1389,8 +1389,8 @@
+   "Supported: VSD, VSDX": "Compatibles: VSD, VSDX",
+   "Supported: XLSX, XLS, ODS, CSV": "Compatibles: XLSX, XLS, ODS, CSV",
+   "Supported: XPS, OXPS": "Compatibles: XPS, OXPS",
+-  "Switches apps": "Cambia de aplicación",
+-  "Switches tabs": "Cambia de pestaña",
++  "Switches apps": "Cambie de aplicación",
++  "Switches tabs": "Cambie de pestaña",
+   "Table of Contents": "Tabla de contenidos",
+   "Table {{n}} (Page {{page}})": "Tabla {{n}} (página {{page}})",
+   "Tabloid": "Tabloide",
+@@ -1423,20 +1423,20 @@
+   "The compression engine returned an unreadable result.": "El motor de compresión devolvió un resultado ilegible.",
+   "The compression engine stopped unexpectedly.": "El motor de compresión se detuvo de forma inesperada.",
+   "The current password you entered is incorrect. Please try again.": "La contraseña actual que introdujiste es incorrecta. Inténtalo de nuevo.",
+-  "The following field names already exist in the uploaded PDF: {{conflictList}}. Please rename these fields before downloading.": "Los siguientes nombres de campo ya existen en el PDF subido: {{conflictList}}. Cambia el nombre de estos campos antes de descargar.",
+-  "The following field names are used more than once: {{duplicateList}}. Please rename these fields to use unique names before downloading.": "Los siguientes nombres de campo se usan más de una vez: {{duplicateList}}. Cambia el nombre de estos campos para que sean únicos antes de descargar.",
++  "The following field names already exist in the uploaded PDF: {{conflictList}}. Please rename these fields before downloading.": "Los siguientes nombres de campo ya existen en el PDF subido: {{conflictList}}. Cambie el nombre de estos campos antes de descargar.",
++  "The following field names are used more than once: {{duplicateList}}. Please rename these fields to use unique names before downloading.": "Los siguientes nombres de campo se usan más de una vez: {{duplicateList}}. Cambie el nombre de estos campos para que sean únicos antes de descargar.",
+   "The number of pages specified ({{length}}) does not match the current number of pages in the document ({{currentGridCount}}). Please provide a complete ordering for all pages.": "El número de páginas indicado ({{length}}) no coincide con el número actual de páginas del documento ({{currentGridCount}}). Indica un orden completo para todas las páginas.",
+   "The password you entered is incorrect. Please try again.": "La contraseña que introdujiste es incorrecta. Inténtalo de nuevo.",
+   "The password you entered is wrong or the file is corrupted.": "La contraseña que introdujiste es incorrecta o el archivo está dañado.",
+   "The provided file could not be loaded as an image. It may be corrupted.": "No se pudo cargar el archivo proporcionado como imagen. Puede estar dañado.",
+   "The requested OCR language is not available: {{unavailableText}}.": "El idioma de OCR solicitado no está disponible: {{unavailableText}}.",
+-  "The specified page order is incomplete or contains invalid page numbers. Please ensure you provide a new position for every original page.": "El orden de páginas indicado está incompleto o contiene números de página no válidos. Asegúrate de indicar una nueva posición para cada página original.",
++  "The specified page order is incomplete or contains invalid page numbers. Please ensure you provide a new position for every original page.": "El orden de páginas indicado está incompleto o contiene números de página no válidos. Asegúrese de indicar una nueva posición para cada página original.",
+   "These files are not valid PDFs, so they were not added: {{names}}.": "Estos archivos no son PDF válidos, por lo que no se agregaron: {{names}}.",
+-  "These files are password protected: {{names}}. Enter their passwords on the file cards, or remove them, then compress again.": "Estos archivos están protegidos con contraseña: {{names}}. Introduce sus contraseñas en las tarjetas de archivo o quítalos, y vuelve a comprimir.",
++  "These files are password protected: {{names}}. Enter their passwords on the file cards, or remove them, then compress again.": "Estos archivos están protegidos con contraseña: {{names}}. Introduzca sus contraseñas en las tarjetas de archivo o quítalos, y vuelve a comprimir.",
+   "This BentoPDF build only bundles OCR data for {{availableText}}.": "Esta compilación de BentoPDF solo incluye datos de OCR para {{availableText}}.",
+   "This PDF does not contain any digital signatures.": "Este PDF no contiene firmas digitales.",
+   "This PDF has no layers (OCG).": "Este PDF no tiene capas (OCG).",
+-  "This PDF is password-protected. Please enter the current password to proceed.": "Este PDF está protegido con contraseña. Introduce la contraseña actual para continuar.",
++  "This PDF is password-protected. Please enter the current password to proceed.": "Este PDF está protegido con contraseña. Introduzca la contraseña actual para continuar.",
+   "This document contains pages with different dimensions:": "Este documento contiene páginas con dimensiones distintas:",
+   "This document has 1 redaction mark that hasn't been applied. Until a mark is applied, the content under it is still in the file. Apply all marks and download?": "Este documento tiene 1 marca de censura que aún no se ha aplicado. Mientras una marca no se aplique, el contenido que hay debajo sigue en el archivo. ¿Aplicar todas las marcas y descargar?",
+   "This document has {{count}} redaction marks that haven't been applied. Until a mark is applied, the content under it is still in the file. Apply all marks and download?": "Este documento tiene {{count}} marcas de censura que aún no se han aplicado. Mientras una marca no se aplique, el contenido que hay debajo sigue en el archivo. ¿Aplicar todas las marcas y descargar?",
+@@ -1444,7 +1444,7 @@
+   "This file is not a valid PDF.": "Este archivo no es un PDF válido.",
+   "This module is licensed under AGPL-3.0. By configuring it, you agree to its license terms.": "Este módulo tiene licencia AGPL-3.0. Al configurarlo, aceptas los términos de su licencia.",
+   "This tool has been disabled": "Esta herramienta está deshabilitada",
+-  "This tool is not available in your deployment. Contact your administrator for more information.": "Esta herramienta no está disponible en tu implementación. Ponte en contacto con tu administrador para más información.",
++  "This tool is not available in your deployment. Contact your administrator for more information.": "Esta herramienta no está disponible en su implementación. Ponte en contacto con su administrador para más información.",
+   "Threshold": "Umbral",
+   "Tile": "Mosaico",
+   "Tile Gap X": "Separación X del mosaico",
+@@ -1457,7 +1457,7 @@
+   "Timestamp Failed": "Falló la marca de tiempo",
+   "Tint": "Tinte",
+   "Title": "Título",
+-  "To actually fill or change the options, use our PDF Form Filler tool.": "Para rellenar o cambiar las opciones, usa nuestra herramienta Rellenar Formularios PDF.",
++  "To actually fill or change the options, use our PDF Form Filler tool.": "Para rellenar o cambiar las opciones, use nuestra herramienta Rellenar Formularios PDF.",
+   "Toggle": "Alternar",
+   "Toggle style": "Alternar estilo",
+   "Toggle sync scroll": "Alternar desplazamiento sincronizado",
+@@ -1470,13 +1470,13 @@
+   "Top edge in points": "Borde superior en puntos",
+   "Total Pages": "Total de páginas",
+   "Transparent Background": "Fondo transparente",
+-  "Tries JPEG 2000 against JPEG for each image and keeps the smaller one.": "Prueba JPEG 2000 frente a JPEG para cada imagen y conserva la más pequeña.",
++  "Tries JPEG 2000 against JPEG for each image and keeps the smaller one.": "Pruebe JPEG 2000 frente a JPEG para cada imagen y conserva la más pequeña.",
+   "Trim margins from all pages": "Recorta los márgenes de todas las páginas",
+   "Trust verification: {{trustVerified}}/{{length}} signatures verified against custom certificate": "Verificación de confianza: {{trustVerified}}/{{length}} firmas verificadas con el certificado personalizado",
+   "Trusted": "De confianza",
+   "Trusted certificate loaded": "Certificado de confianza cargado",
+   "Tsa Url": "URL de TSA",
+-  "Turns off quality, resolution and every other lossy image step.": "Desactiva la calidad, la resolución y cualquier otro paso de imagen con pérdida.",
++  "Turns off quality, resolution and every other lossy image step.": "Desactive la calidad, la resolución y cualquier otro paso de imagen con pérdida.",
+   "UPC-A": "UPC-A",
+   "URL": "URL",
+   "URL must start with http:// or https://": "La URL debe comenzar con http:// o https://",
+@@ -1501,7 +1501,7 @@
+   "Unlocking...": "Desbloqueando...",
+   "Unresolved optional content reference": "Referencia de contenido opcional sin resolver",
+   "Unsupported ECDSA curve in signer certificate": "Curva ECDSA no compatible en el certificado del firmante",
+-  "Unsupported Image. Please use a PNG or JPG for the watermark.": "Imagen no compatible. Usa un PNG o JPG para la marca de agua.",
++  "Unsupported Image. Please use a PNG or JPG for the watermark.": "Imagen no compatible. Use un PNG o JPG para la marca de agua.",
+   "Unsupported digest OID {{digestOid}}": "OID de resumen {{digestOid}} no compatible",
+   "Unsupported file type: .{{ext}}": "Tipo de archivo no compatible: .{{ext}}",
+   "Unsupported signature algorithm OID {{oid}}": "OID de algoritmo de firma {{oid}} no compatible",
+@@ -1534,9 +1534,9 @@
+   "Upload WPS Files": "Subir archivos WPS",
+   "Upload XML Files": "Subir archivos XML",
+   "Upload XPS Files": "Subir archivos XPS",
+-  "Upload a PDF and click \"Generate Preview\" to see the booklet layout": "Sube un PDF y haz clic en \"Generar vista previa\" para ver el diseño del folleto",
+-  "Upload images and convert to PDF": "Sube imágenes y conviértelas a PDF",
+-  "Upload one or more PDF files": "Sube uno o más archivos PDF",
++  "Upload a PDF and click \"Generate Preview\" to see the booklet layout": "Suba un PDF y haga clic en \"Generar vista previa\" para ver el diseño del folleto",
++  "Upload images and convert to PDF": "Suba imágenes y conviértelas a PDF",
++  "Upload one or more PDF files": "Suba uno o más archivos PDF",
+   "Uppercase A-Z, digits 0-9, and - . $ / + % SPACE": "Mayúsculas A-Z, dígitos 0-9 y - . $ / + % ESPACIO",
+   "Use same password for all files": "Usar la misma contraseña para todos los archivos",
+   "User Password": "Contraseña de usuario",
+@@ -1550,7 +1550,7 @@
+   "Value (e.g., Marketing)": "Valor (p. ej., Marketing)",
+   "Vertical": "Vertical",
+   "Viewer not ready": "Visor no listo",
+-  "Viewer not ready. Please upload a PDF and wait for it to finish loading.": "Visor no listo. Sube un PDF y espera a que termine de cargarse.",
++  "Viewer not ready. Please upload a PDF and wait for it to finish loading.": "Visor no listo. Suba un PDF y espere a que termine de cargarse.",
+   "Visibility": "Visibilidad",
+   "Visio Files": "Archivos de Visio",
+   "WPD to PDF": "WPD a PDF",
+@@ -1584,12 +1584,12 @@
+   "Year must be between 1900 and 2100": "El año debe estar entre 1900 y 2100",
+   "Yellow": "Amarillo",
+   "Yellowish": "Amarillento",
+-  "You cannot delete the last page of the document.": "No puedes eliminar la última página del documento.",
+-  "Your PDF has been cropped and the download has started.": "Tu PDF se recortó y la descarga ha comenzado.",
+-  "Your PDF has been downloaded successfully.": "Tu PDF se descargó correctamente.",
+-  "Your PDF has been posterized.": "Tu PDF se posterizó.",
+-  "Your redactions are applied to the pages, but this file is encrypted, so BentoPDF can't also remove copies of the redacted text from its properties, bookmarks, and attachments. For a full cleanup, redact an unencrypted copy and add a password afterwards with Protect PDF. Download anyway?": "Tus redacciones se aplican a las páginas, pero este archivo está cifrado, por lo que BentoPDF no puede eliminar también las copias del texto redactado de sus propiedades, marcadores y adjuntos. Para una limpieza completa, redacta una copia sin cifrar y agrega una contraseña después con Proteger PDF. ¿Descargar de todos modos?",
+-  "Your workflow needs at least one input node and one output node to run.": "Tu flujo de trabajo necesita al menos un nodo de entrada y uno de salida para ejecutarse.",
++  "You cannot delete the last page of the document.": "No puede eliminar la última página del documento.",
++  "Your PDF has been cropped and the download has started.": "Su PDF se recortó y la descarga ha comenzado.",
++  "Your PDF has been downloaded successfully.": "Su PDF se descargó correctamente.",
++  "Your PDF has been posterized.": "Su PDF se posterizó.",
++  "Your redactions are applied to the pages, but this file is encrypted, so BentoPDF can't also remove copies of the redacted text from its properties, bookmarks, and attachments. For a full cleanup, redact an unencrypted copy and add a password afterwards with Protect PDF. Download anyway?": "Sus redacciones se aplican a las páginas, pero este archivo está cifrado, por lo que BentoPDF no puede eliminar también las copias del texto redactado de sus propiedades, marcadores y adjuntos. Para una limpieza completa, redacta una copia sin cifrar y agregue una contraseña después con Proteger PDF. ¿Descargar de todos modos?",
++  "Your workflow needs at least one input node and one output node to run.": "Su flujo de trabajo necesita al menos un nodo de entrada y uno de salida para ejecutarse.",
+   "ZIP archive created successfully!": "¡Archivo ZIP creado correctamente!",
+   "Zoom(%)": "Zoom (%)",
+   "e.g. dd/mm/yyyy HH:MM:ss": "p. ej. dd/mm/aaaa HH:MM:ss",
+@@ -1609,11 +1609,11 @@
+   "{{length}} file • {{totalPages}} total pages": "{{length}} archivo • {{totalPages}} páginas en total",
+   "{{length}} file(s) attached successfully.": "{{length}} archivos adjuntados correctamente.",
+   "{{length}} files • {{totalPages}} total pages": "{{length}} archivos • {{totalPages}} páginas en total",
+-  "{{message}} It was password protected, so the compressed copy has no password. Use Protect PDF to add one again.": "{{message}} Estaba protegido con contraseña, así que la copia comprimida no tiene contraseña. Usa Proteger PDF para agregarla de nuevo.",
++  "{{message}} It was password protected, so the compressed copy has no password. Use Protect PDF to add one again.": "{{message}} Estaba protegido con contraseña, así que la copia comprimida no tiene contraseña. Use Proteger PDF para agregarla de nuevo.",
+   "{{name}} ({{size}}, {{totalPageCount}} pages)": "{{name}} ({{size}}, {{totalPageCount}} páginas)",
+   "{{name}} is digitally signed, so it was left as it is. Compressing it would break the signature. To compress it anyway, turn on Override content protection under Custom Settings; its signatures will be removed.": "{{name}} está firmado digitalmente, por lo que se dejó tal cual. Comprimirlo rompería la firma. Para comprimirlo de todos modos, activa Anular protección de contenido en Ajustes personalizados; se eliminarán sus firmas.",
+   "{{name}} is not a valid PDF, so it was not added.": "{{name}} no es un PDF válido, por lo que no se agregó.",
+-  "{{name}} is password protected. Enter its password on the file card, then compress again.": "{{name}} está protegido con contraseña. Introduce su contraseña en la tarjeta del archivo y vuelve a comprimir.",
++  "{{name}} is password protected. Enter its password on the file card, then compress again.": "{{name}} está protegido con contraseña. Introduzca su contraseña en la tarjeta del archivo y vuelve a comprimir.",
+   "{{name}}... (p{{pageNumber}})": "{{name}}... (p. {{pageNumber}})",
+   "{{pageNumber}}": "{{pageNumber}}",
+   "{{page}} {{n}}": "{{page}} {{n}}",
+@@ -1648,4 +1648,4 @@
+   "Size": "Tamaño",
+   "Ascending": "Ascendente",
+   "Descending": "Descendente"
+-}
++}
+\ No newline at end of file
+diff --git a/public/sw.js b/public/sw.js
+index 7ca3ec9..6130182 100644
+--- a/public/sw.js
++++ b/public/sw.js
+@@ -73,9 +73,38 @@ self.addEventListener('activate', (event) => {
+   );
+ });
+ 
++// PDF-IA: las páginas que convierten Word, Excel y PowerPoint necesitan
++// aislamiento de origen (SharedArrayBuffer). GitHub Pages no permite poner
++// cabeceras, así que las agrega este service worker solo en esas páginas.
++const PDFIA_PAGINAS_AISLADAS =
++  /\/(word|excel|powerpoint|odt|ods|odp|odg|rtf|pub|vsd|wpd|wps|pages)-to-pdf\.html$/;
++function pdfiaConAislamiento(resp) {
++  const h = new Headers(resp.headers);
++  h.set('Cross-Origin-Opener-Policy', 'same-origin');
++  h.set('Cross-Origin-Embedder-Policy', 'require-corp');
++  return new Response(resp.body, { status: resp.status, statusText: resp.statusText, headers: h });
++}
++
+ self.addEventListener('fetch', (event) => {
+   const url = new URL(event.request.url);
+ 
++  const pdfiaWorker =
++    url.origin === location.origin &&
++    (event.request.destination === 'worker' || event.request.destination === 'sharedworker');
++  if (
++    pdfiaWorker ||
++    (event.request.mode === 'navigate' &&
++      url.origin === location.origin &&
++      PDFIA_PAGINAS_AISLADAS.test(url.pathname))
++  ) {
++    event.respondWith(
++      fetch(event.request).then(pdfiaConAislamiento).catch(() =>
++        caches.match(event.request).then((r) => (r ? pdfiaConAislamiento(r) : Response.error()))
++      )
++    );
++    return;
++  }
++
+   const isCDN = trustedCdnOrigins.has(url.origin);
+   const isLocal = url.origin === location.origin;
+ 
+diff --git a/src/css/edit-pdf-text.css b/src/css/edit-pdf-text.css
+index ff337ab..4b15a64 100644
+--- a/src/css/edit-pdf-text.css
++++ b/src/css/edit-pdf-text.css
+@@ -1,12 +1,12 @@
+ #text-editor-app {
+-  --ecbg: #111827;
+-  --ecpanel: #2a2a2a;
+-  --ecpanel2: #383838;
+-  --ecline: #444444;
+-  --ectext: #f3f4f6;
+-  --ecmuted: #9ca3af;
+-  --ecaccent: #6366f1;
+-  --ecstage: #383838;
++  --ecbg: #F4F8FB;
++  --ecpanel: #FFFFFF;
++  --ecpanel2: #E8F1FA;
++  --ecline: #DCE5EE;
++  --ectext: #1C2B39;
++  --ecmuted: #5D6B78;
++  --ecaccent: #14A38B;
++  --ecstage: #DCE5EE;
+   position: fixed;
+   inset: 0;
+   z-index: 40;
+@@ -50,7 +50,7 @@
+   user-select: none;
+ }
+ #text-editor-app .btn:hover {
+-  background: #444444;
++  background: #DCE5EE;
+ }
+ #text-editor-app .btn:disabled {
+   opacity: 0.4;
+@@ -281,7 +281,7 @@
+ }
+ #text-editor-app .editor.pristine [contenteditable] ::selection,
+ #text-editor-app .editor.pristine [contenteditable]::selection {
+-  background: rgba(99, 102, 241, 0.28);
++  background: rgba(20, 163, 139, 0.28);
+ }
+ 
+ #text-editor-app .edit-move {
+@@ -292,7 +292,7 @@
+   background: transparent;
+ }
+ #text-editor-app .edit-move:hover {
+-  background: rgba(99, 102, 241, 0.18);
++  background: rgba(20, 163, 139, 0.18);
+ }
+ 
+ #text-editor-app .edit-chrome,
+@@ -308,14 +308,14 @@
+ #text-editor-app .multi-box {
+   position: absolute;
+   border: 1.5px solid var(--ecaccent);
+-  background: rgba(99, 102, 241, 0.06);
++  background: rgba(20, 163, 139, 0.06);
+   pointer-events: auto;
+   cursor: move;
+ }
+ #text-editor-app .marquee {
+   position: absolute;
+   border: 1px dashed var(--ecaccent);
+-  background: rgba(99, 102, 241, 0.08);
++  background: rgba(20, 163, 139, 0.08);
+   pointer-events: none;
+ }
+ 
+@@ -450,7 +450,7 @@
+ 
+ #text-editor-app .textsel {
+   position: absolute;
+-  background: rgba(99, 102, 241, 0.28);
++  background: rgba(20, 163, 139, 0.28);
+   pointer-events: none;
+ }
+ 
+@@ -583,7 +583,7 @@
+ }
+ #text-editor-app #toast {
+   border: 1px solid var(--ecline);
+-  background: rgba(17, 24, 39, 0.92);
++  background: rgba(255, 255, 255, 0.96);
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+ }
+ 
+@@ -599,7 +599,7 @@
+   align-items: center;
+   gap: 4px;
+   padding: 4px 10px;
+-  background: rgba(31, 41, 55, 0.94);
++  background: rgba(255, 255, 255, 0.96);
+   border: 1px solid var(--ecline);
+   border-radius: 999px;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+@@ -707,7 +707,7 @@
+     #f59e0b,
+     #84cc16,
+     #06b6d4,
+-    #6366f1,
++    #14A38B,
+     #d946ef,
+     #f43f5e
+   );
+@@ -768,7 +768,7 @@
+   align-items: center;
+   gap: 8px;
+   padding: 5px 10px;
+-  background: rgba(31, 41, 55, 0.94);
++  background: rgba(255, 255, 255, 0.96);
+   border: 1px solid var(--ecline);
+   border-radius: 12px;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+@@ -1009,7 +1009,7 @@
+   bottom: 14px;
+   z-index: 6;
+   padding: 6px 12px;
+-  background: rgba(31, 41, 55, 0.94);
++  background: rgba(255, 255, 255, 0.96);
+   border: 1px solid var(--ecline);
+   border-radius: 8px;
+   font-size: 12px;
+@@ -1043,7 +1043,7 @@
+   cursor: pointer;
+ }
+ #text-editor-app .toolright button[data-tool]:hover {
+-  background: #444444;
++  background: #DCE5EE;
+ }
+ #text-editor-app .toolright button[data-tool].on {
+   background: var(--ecaccent);
+@@ -1095,7 +1095,7 @@
+   z-index: 40;
+   min-width: 170px;
+   padding: 6px;
+-  background: #262f3f;
++  background: #E8F1FA;
+   border: 1px solid var(--ecline);
+   border-radius: 12px;
+   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+@@ -1166,7 +1166,7 @@
+   right: 12px;
+   bottom: 12px;
+   z-index: 6;
+-  background: rgba(31, 41, 55, 0.94);
++  background: rgba(255, 255, 255, 0.96);
+   border: 1px solid var(--ecline);
+   border-radius: 999px;
+   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+@@ -1285,7 +1285,7 @@
+   line-height: 1;
+ }
+ #text-editor-app .stepbtn:hover {
+-  background: #444444;
++  background: #DCE5EE;
+   color: var(--ectext);
+ }
+ #text-editor-app .stepper:has(.num:disabled) .stepbtn {
+@@ -1340,7 +1340,7 @@
+   min-width: 180px;
+   padding: 4px;
+   border-radius: 10px;
+-  background: #232b3a;
++  background: #E8F1FA;
+ }
+ #text-editor-app .ecmenu hr {
+   border: none;
+@@ -1526,8 +1526,8 @@
+     border-bottom: none;
+     border-top: 1px solid var(--ecline);
+     border-radius: 16px 16px 0 0;
+-    background: #2a2a2a;
+-    background: var(--ecpanel, #2a2a2a);
++    background: #FFFFFF;
++    background: var(--ecpanel, #FFFFFF);
+     box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.45);
+     z-index: 27;
+     padding: 8px 14px calc(14px + env(safe-area-inset-bottom));
+@@ -1790,7 +1790,7 @@
+   box-shadow:
+     0 1px 2px rgba(0, 0, 0, 0.4),
+     0 18px 44px -12px rgba(0, 0, 0, 0.6);
+-  outline: 1px solid rgba(255, 255, 255, 0.07);
++  outline: 1px solid rgba(11, 79, 138, 0.06);
+ }
+ 
+ @media (max-width: 768px) {
+diff --git a/src/css/landing.css b/src/css/landing.css
+index 964d60b..25f9624 100644
+--- a/src/css/landing.css
++++ b/src/css/landing.css
+@@ -1,19 +1,19 @@
+ body.lp {
+-  --lp-bg: #222222;
+-  --lp-bg-2: #2a2a2a;
+-  --lp-bg-3: #383838;
+-  --lp-well: #222222;
+-  --lp-line: rgba(255, 255, 255, 0.1);
+-  --lp-line-2: rgba(255, 255, 255, 0.2);
+-  --lp-text: #f3f3f1;
+-  --lp-text-2: #b4b4b0;
+-  --lp-dim: #8d8d89;
+-  --lp-accent: #6366f1;
+-  --lp-accent-hover: #4f46e5;
+-  --lp-accent-2: #818cf8;
+-  --lp-accent-3: #a5b4fc;
+-  --lp-white: #f4f4f1;
+-  --lp-display: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
++  --lp-bg: #F4F8FB;
++  --lp-bg-2: #FFFFFF;
++  --lp-bg-3: #E8F1FA;
++  --lp-well: #F4F8FB;
++  --lp-line: #DCE5EE;
++  --lp-line-2: #C5D3E0;
++  --lp-text: #1C2B39;
++  --lp-text-2: #5D6B78;
++  --lp-dim: #8A97A4;
++  --lp-accent: #14A38B;
++  --lp-accent-hover: #0E8571;
++  --lp-accent-2: #0E8571;
++  --lp-accent-3: #0B4F8A;
++  --lp-white: #FFFFFF;
++  --lp-display: 'Barlow Condensed', 'Public Sans', sans-serif;
+   --lp-mono:
+     ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+   --lp-pad: clamp(16px, 4vw, 48px);
+@@ -22,7 +22,7 @@ body.lp {
+ }
+ 
+ body.lp ::selection {
+-  background: rgba(99, 102, 241, 0.45);
++  background: rgba(20, 163, 139, 0.45);
+   color: #fff;
+ }
+ 
+@@ -54,7 +54,7 @@ body.lp ::selection {
+   position: sticky;
+   top: 0;
+   z-index: 30;
+-  background: rgba(34, 34, 34, 0.86);
++  background: rgba(255, 255, 255, 0.92);
+   -webkit-backdrop-filter: blur(14px);
+   backdrop-filter: blur(14px);
+   border-bottom: 1px solid var(--lp-line);
+@@ -107,14 +107,14 @@ body.lp ::selection {
+ 
+ .lp-nav-links a:hover {
+   color: var(--lp-text);
+-  background: rgba(255, 255, 255, 0.05);
++  background: rgba(11, 79, 138, 0.05);
+ }
+ 
+ .lp-nav-fill {
+   flex: 1;
+   background-image: repeating-linear-gradient(
+     135deg,
+-    rgba(255, 255, 255, 0.045) 0 1px,
++    rgba(11, 79, 138, 0.045) 0 1px,
+     transparent 1px 10px
+   );
+ }
+@@ -144,8 +144,8 @@ body.lp ::selection {
+ }
+ 
+ .lp-nav-gh:hover {
+-  background: rgba(255, 255, 255, 0.06);
+-  border-color: rgba(255, 255, 255, 0.32);
++  background: rgba(11, 79, 138, 0.06);
++  border-color: rgba(11, 79, 138, 0.32);
+ }
+ 
+ .lp-nav-gh svg {
+@@ -273,8 +273,8 @@ body.lp ::selection {
+ }
+ 
+ .lp-pill-btn--ghost:hover {
+-  background: rgba(255, 255, 255, 0.06);
+-  border-color: rgba(255, 255, 255, 0.32);
++  background: rgba(11, 79, 138, 0.06);
++  border-color: rgba(11, 79, 138, 0.32);
+ }
+ 
+ .lp-btn {
+@@ -316,7 +316,7 @@ body.lp ::selection {
+ .lp-btn--primary {
+   background: var(--lp-accent);
+   color: #fff;
+-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
++  box-shadow: inset 0 1px 0 rgba(11, 79, 138, 0.14);
+ }
+ 
+ .lp-btn--primary:hover {
+@@ -330,8 +330,8 @@ body.lp ::selection {
+ }
+ 
+ .lp-btn--ghost:hover {
+-  background: rgba(255, 255, 255, 0.05);
+-  border-color: rgba(255, 255, 255, 0.32);
++  background: rgba(11, 79, 138, 0.05);
++  border-color: rgba(11, 79, 138, 0.32);
+ }
+ 
+ .lp-btn--ghost svg {
+@@ -360,14 +360,14 @@ body.lp ::selection {
+   pointer-events: none;
+   background-repeat: no-repeat;
+   background-image:
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+-    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4));
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4)),
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4)),
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4)),
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4)),
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4)),
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4)),
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4)),
++    linear-gradient(rgba(11, 79, 138, 0.4), rgba(11, 79, 138, 0.4));
+   background-size:
+     11px 1px,
+     1px 11px,
+@@ -522,7 +522,7 @@ body.lp ::selection {
+   pointer-events: none;
+   background: radial-gradient(
+     50% 42% at 50% 0%,
+-    rgba(99, 102, 241, 0.16),
++    rgba(20, 163, 139, 0.16),
+     transparent 70%
+   );
+ }
+@@ -559,7 +559,7 @@ body.lp ::selection {
+   position: absolute;
+   width: 56px;
+   height: 56px;
+-  background: rgba(255, 255, 255, 0.045);
++  background: rgba(11, 79, 138, 0.045);
+ }
+ 
+ .lp-hero-bg i:nth-child(1) {
+@@ -585,7 +585,7 @@ body.lp ::selection {
+ .lp-hero-bg i:nth-child(5) {
+   left: calc(50% - 28px - 168px);
+   top: 392px;
+-  background: rgba(99, 102, 241, 0.16);
++  background: rgba(20, 163, 139, 0.16);
+ }
+ 
+ .lp-hero-bg i:nth-child(6) {
+@@ -606,7 +606,7 @@ body.lp ::selection {
+ .lp-hero-bg i:nth-child(9) {
+   left: calc(50% - 28px - 56px);
+   top: 0;
+-  background: rgba(255, 255, 255, 0.025);
++  background: rgba(11, 79, 138, 0.025);
+ }
+ 
+ .lp-hero-bg i:nth-child(10) {
+@@ -872,14 +872,14 @@ body.lp ::selection {
+ .lp-cell--hatch {
+   background-image: repeating-linear-gradient(
+     135deg,
+-    rgba(255, 255, 255, 0.06) 0 1px,
++    rgba(11, 79, 138, 0.06) 0 1px,
+     transparent 1px 10px
+   );
+ }
+ 
+ .lp-cell--dots {
+   background-image: radial-gradient(
+-    rgba(255, 255, 255, 0.16) 1px,
++    rgba(11, 79, 138, 0.16) 1px,
+     transparent 1.5px
+   );
+   background-size: 16px 16px;
+@@ -905,7 +905,7 @@ body.lp ::selection {
+ 
+ .lp-cell--accent p,
+ .lp-cell--accent span {
+-  color: rgba(255, 255, 255, 0.82);
++  color: rgba(11, 79, 138, 0.82);
+ }
+ 
+ .lp-cell--white,
+@@ -1117,7 +1117,7 @@ body.lp ::selection {
+ 
+ .lp-input:focus {
+   border-color: var(--lp-accent);
+-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
++  box-shadow: 0 0 0 4px rgba(20, 163, 139, 0.18);
+ }
+ 
+ .lp-search-right {
+@@ -1160,7 +1160,7 @@ body.lp ::selection {
+ 
+ .lp-icon-btn:hover {
+   color: var(--lp-text);
+-  background: rgba(255, 255, 255, 0.06);
++  background: rgba(11, 79, 138, 0.06);
+ }
+ 
+ .lp-icon-btn svg {
+@@ -1179,31 +1179,31 @@ body.lp ::selection {
+ }
+ 
+ .lp #tool-grid {
+-  --tile-fg: #a5b4fc;
++  --tile-fg: #0B4F8A;
+ }
+ 
+ .lp #tool-grid > .is-cat-edit-annotate {
+-  --tile-fg: #d6c285;
++  --tile-fg: #B07A0E;
+ }
+ 
+ .lp #tool-grid > .is-cat-convert-to-pdf {
+-  --tile-fg: #79c4cb;
++  --tile-fg: #0E8571;
+ }
+ 
+ .lp #tool-grid > .is-cat-convert-from-pdf {
+-  --tile-fg: #b8aade;
++  --tile-fg: #6B4FB3;
+ }
+ 
+ .lp #tool-grid > .is-cat-organize-manage {
+-  --tile-fg: #8dacda;
++  --tile-fg: #1867B0;
+ }
+ 
+ .lp #tool-grid > .is-cat-optimize-repair {
+-  --tile-fg: #89cca8;
++  --tile-fg: #1F8A4C;
+ }
+ 
+ .lp #tool-grid > .is-cat-secure-pdf {
+-  --tile-fg: #dea3a3;
++  --tile-fg: #B3474A;
+ }
+ 
+ .lp .category-group {
+@@ -1221,7 +1221,7 @@ body.lp ::selection {
+   gap: 14px;
+   margin: 0 0 22px;
+   padding: 12px 2px;
+-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
++  border-bottom: 1px solid rgba(11, 79, 138, 0.07);
+   font-family: var(--lp-display);
+   font-size: 20px;
+   font-weight: 600;
+@@ -1250,7 +1250,7 @@ body.lp ::selection {
+   background-color: var(--lp-well);
+   background-image: repeating-linear-gradient(
+     135deg,
+-    rgba(255, 255, 255, 0.05) 0 1px,
++    rgba(11, 79, 138, 0.05) 0 1px,
+     transparent 1px 10px
+   );
+ }
+@@ -1438,7 +1438,7 @@ body.lp ::selection {
+   pointer-events: none;
+   background: radial-gradient(
+     60% 70% at 50% 110%,
+-    rgba(99, 102, 241, 0.28),
++    rgba(20, 163, 139, 0.28),
+     transparent 70%
+   );
+ }
+@@ -1684,7 +1684,7 @@ body.lp ::selection {
+ }
+ 
+ .lp-stat.lp-cell--accent span {
+-  color: rgba(255, 255, 255, 0.85);
++  color: rgba(11, 79, 138, 0.85);
+ }
+ 
+ .lp-manifesto {
+@@ -1834,7 +1834,7 @@ body.lp ::selection {
+ }
+ 
+ .lp #shortcuts-modal > div {
+-  border: 1px solid rgba(255, 255, 255, 0.1);
++  border: 1px solid rgba(11, 79, 138, 0.1);
+   border-radius: 12px;
+   background: rgb(45, 45, 45);
+   box-shadow:
+@@ -1845,7 +1845,7 @@ body.lp ::selection {
+ 
+ .lp #shortcuts-modal > div > div:first-child {
+   padding: 16px 20px;
+-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
++  border-bottom: 1px solid rgba(11, 79, 138, 0.06);
+ }
+ 
+ .lp #shortcuts-modal h3 {
+@@ -1873,7 +1873,7 @@ body.lp ::selection {
+ }
+ 
+ .lp #close-shortcuts-modal:hover {
+-  background: rgba(255, 255, 255, 0.11);
++  background: rgba(11, 79, 138, 0.11);
+   color: var(--lp-text);
+ }
+ 
+@@ -1886,8 +1886,8 @@ body.lp ::selection {
+   gap: 4px;
+   margin: 14px 20px 0;
+   padding: 4px;
+-  border: 1px solid rgba(255, 255, 255, 0.06);
+-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
++  border: 1px solid rgba(11, 79, 138, 0.06);
++  border-bottom: 1px solid rgba(11, 79, 138, 0.06);
+   border-radius: 10px;
+   background: rgb(34, 34, 34);
+ }
+@@ -1941,7 +1941,7 @@ body.lp ::selection {
+ 
+ .lp #shortcut-search:focus {
+   border-color: var(--lp-accent);
+-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
++  box-shadow: 0 0 0 3px rgba(20, 163, 139, 0.18);
+   outline: none;
+ }
+ 
+@@ -1953,7 +1953,7 @@ body.lp ::selection {
+   padding: 12px 14px;
+   border: 1px solid rgba(129, 140, 248, 0.25);
+   border-radius: 10px;
+-  background: rgba(99, 102, 241, 0.08);
++  background: rgba(20, 163, 139, 0.08);
+ }
+ 
+ .lp #shortcuts-tab-content > div:nth-child(2) p {
+@@ -1976,7 +1976,7 @@ body.lp ::selection {
+ 
+ .lp #shortcuts-list .shortcut-item {
+   padding: 10px 12px;
+-  border: 1px solid rgba(255, 255, 255, 0.06);
++  border: 1px solid rgba(11, 79, 138, 0.06);
+   border-radius: 10px;
+   background: rgb(34, 34, 34);
+   transition:
+@@ -1985,8 +1985,8 @@ body.lp ::selection {
+ }
+ 
+ .lp #shortcuts-list .shortcut-item:hover {
+-  background: rgba(255, 255, 255, 0.11);
+-  border-color: rgba(255, 255, 255, 0.06);
++  background: rgba(11, 79, 138, 0.11);
++  border-color: rgba(11, 79, 138, 0.06);
+ }
+ 
+ .lp #shortcuts-list .shortcut-item i.ph {
+@@ -2012,7 +2012,7 @@ body.lp ::selection {
+ 
+ .lp #shortcuts-list .shortcut-input:focus {
+   border-color: var(--lp-accent);
+-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
++  box-shadow: 0 0 0 3px rgba(20, 163, 139, 0.18);
+ }
+ 
+ .lp #preferences-tab-content h4 {
+@@ -2024,7 +2024,7 @@ body.lp ::selection {
+ 
+ .lp #preferences-tab-content .bg-gray-900 {
+   padding: 14px 16px;
+-  border: 1px solid rgba(255, 255, 255, 0.06);
++  border: 1px solid rgba(11, 79, 138, 0.06);
+   border-radius: 10px;
+   background: rgb(34, 34, 34);
+ }
+@@ -2042,7 +2042,7 @@ body.lp ::selection {
+ }
+ 
+ .lp #preferences-tab-content a.bg-gray-900:hover {
+-  background: rgba(255, 255, 255, 0.11);
++  background: rgba(11, 79, 138, 0.11);
+   border-color: rgba(129, 140, 248, 0.4);
+ }
+ 
+@@ -2060,7 +2060,7 @@ body.lp ::selection {
+ 
+ .lp #shortcuts-modal > div > div:last-child {
+   padding: 14px 20px;
+-  border-top: 1px solid rgba(255, 255, 255, 0.06);
++  border-top: 1px solid rgba(11, 79, 138, 0.06);
+   border-radius: 0 0 14px 14px;
+   background: transparent;
+ }
+@@ -2081,7 +2081,7 @@ body.lp ::selection {
+ 
+ .lp #import-shortcuts-btn:hover,
+ .lp #export-shortcuts-btn:hover {
+-  background: rgba(255, 255, 255, 0.08);
++  background: rgba(11, 79, 138, 0.08);
+   color: var(--lp-text);
+ }
+ 
+diff --git a/src/css/styles.css b/src/css/styles.css
+index 2168d07..40c7ab9 100644
+--- a/src/css/styles.css
++++ b/src/css/styles.css
+@@ -1,3 +1,9 @@
++@import '@fontsource/public-sans/400.css';
++@import '@fontsource/public-sans/500.css';
++@import '@fontsource/public-sans/600.css';
++@import '@fontsource/public-sans/700.css';
++@import '@fontsource/barlow-condensed/600.css';
++@import '@fontsource/barlow-condensed/700.css';
+ @import '@fontsource/dm-sans/400.css';
+ @import '@fontsource/dm-sans/500.css';
+ @import '@fontsource/dm-sans/600.css';
+@@ -18,22 +24,38 @@
+ @import 'tailwindcss';
+ 
+ @theme {
+-  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
++  --font-sans: 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+   --font-dancing: 'Dancing Script', cursive;
+   --font-vibes: 'Great Vibes', cursive;
+   --font-kalam: 'Kalam', cursive;
+   --font-lato: 'Lato', sans-serif;
+   --font-merriweather: 'Merriweather', serif;
+   --font-cedarville: 'Cedarville Cursive', cursive;
+-  --color-gray-900: rgb(34, 34, 34);
+-  --color-gray-800: rgb(42, 42, 42);
+-  --color-gray-700: rgb(56, 56, 56);
+-  --color-gray-600: rgb(68, 68, 68);
+-  --color-indigo-300: #a5b4fc;
+-  --color-indigo-400: #818cf8;
+-  --color-indigo-500: #6366f1;
+-  --color-indigo-600: #6366f1;
+-  --color-indigo-700: #4f46e5;
++  /* PDF-IA: paleta FamilIA Salud (modo claro) */
++  --font-title: 'Barlow Condensed', 'Public Sans', sans-serif;
++  --color-gray-950: #EEF4F9;
++  --color-gray-900: #F4F8FB;
++  --color-gray-850: #FFFFFF;
++  --color-gray-800: #FFFFFF;
++  --color-gray-700: #E8F1FA;
++  --color-gray-600: #DCE5EE;
++  --color-gray-500: #8A97A4;
++  --color-gray-400: #5D6B78;
++  --color-gray-300: #3C4B58;
++  --color-gray-200: #2A3946;
++  --color-gray-100: #1C2B39;
++  --color-gray-50: #1C2B39;
++  --color-indigo-50: #E3F6F2;
++  --color-indigo-100: #E3F6F2;
++  --color-indigo-200: #BFE9DF;
++  --color-indigo-300: #0E8571;
++  --color-indigo-400: #0E8571;
++  --color-indigo-500: #14A38B;
++  --color-indigo-600: #14A38B;
++  --color-indigo-700: #0E8571;
++  --color-indigo-800: #0B6B5B;
++  --color-indigo-900: #E3F6F2;
++  --color-indigo-950: #E3F6F2;
+ }
+ 
+ @layer base {
+@@ -44,7 +66,7 @@
+ }
+ 
+ @theme {
+-  --font-sans: 'DM Sans', ui-sans-serif, system-ui;
++  --font-sans: 'Public Sans', ui-sans-serif, system-ui;
+   --font-dancing: 'Dancing Script', cursive;
+   --font-vibes: 'Great Vibes', cursive;
+   --font-kalam: 'Kalam', cursive;
+@@ -58,9 +80,10 @@ html {
+ }
+ 
+ body {
+-  font-family: 'DM Sans', sans-serif;
+-  background-color: rgb(34, 34, 34);
+-  color: #d1d5db;
++  font-family: 'Public Sans', sans-serif;
++  background-color: #F4F8FB;
++  color: #1C2B39;
++  color-scheme: light;
+ }
+ 
+ .tool-card {
+@@ -1885,3 +1908,35 @@ details > summary .icon {
+   gap: 0.25rem;
+   padding: 0.25rem 0;
+ }
++
++/* ============ PDF-IA · SkyNet Genesis: modo claro y paleta ============ */
++:root { color-scheme: light; }
++h1, h2, .text-3xl, .text-4xl, .text-5xl { font-family: 'Barlow Condensed', 'Public Sans', sans-serif; letter-spacing: .2px; }
++h1 { color: #0B4F8A; }
++/* Texto principal oscuro (la base usaba texto blanco sobre fondo oscuro) */
++.text-white { color: #1C2B39; }
++/* Pero sobre botones y franjas de color, el texto sigue blanco */
++[class*="bg-indigo-5"].text-white, [class*="bg-indigo-6"].text-white, [class*="bg-indigo-7"].text-white,
++[class*="bg-indigo-5"] .text-white, [class*="bg-indigo-6"] .text-white, [class*="bg-indigo-7"] .text-white,
++[class*="bg-red-"].text-white, [class*="bg-red-"] .text-white,
++[class*="bg-green-"].text-white, [class*="bg-green-"] .text-white,
++[class*="bg-blue-"].text-white, [class*="bg-blue-"] .text-white,
++[class*="bg-emerald-"].text-white, [class*="bg-emerald-"] .text-white,
++[class*="bg-teal-"].text-white, [class*="bg-teal-"] .text-white,
++[class*="bg-purple-"].text-white, [class*="bg-purple-"] .text-white,
++[class*="bg-orange-"].text-white, [class*="bg-yellow-6"].text-white,
++[class*="bg-amber-6"].text-white, [class*="bg-rose-"].text-white,
++.btn-gradient, .btn-gradient *, .pdfia-blanco, .pdfia-blanco * { color: #FFFFFF; }
++/* Botones principales: verde azulado relleno con letras blancas */
++.btn-gradient { background: linear-gradient(135deg,#14A38B,#0E8571) !important; color:#fff !important; }
++/* Barra superior blanca con sombra suave */
++nav[data-simple-nav], nav.bg-gray-800 { background:#FFFFFF !important; box-shadow: 0 2px 10px rgba(11,79,138,.08); border-color:#DCE5EE !important; }
++#nav-brand, #nav-brand a { color:#0B4F8A !important; font-family:'Barlow Condensed','Public Sans',sans-serif; font-size:1.55rem; letter-spacing:.3px; }
++/* Tarjetas */
++.bg-gray-800 { box-shadow: 0 1px 3px rgba(28,43,57,.06); }
++/* Campos claros con letra oscura */
++input, select, textarea { color-scheme: light; }
++input[type="checkbox"], input[type="radio"] { accent-color:#14A38B; background:#fff; }
++::placeholder { color:#8A97A4 !important; }
++/* Barras de desplazamiento claras */
++* { scrollbar-color: #C5D3E0 #F4F8FB; }
+diff --git a/src/js/config/tools.ts b/src/js/config/tools.ts
+index 9b55ab7..034277e 100644
+--- a/src/js/config/tools.ts
++++ b/src/js/config/tools.ts
+@@ -3,6 +3,13 @@ const baseCategories = [
+   {
+     name: 'Popular Tools',
+     tools: [
++      {
++        href: import.meta.env.BASE_URL + 'escanear/index.html',
++        name: 'Escanear documento',
++        icon: 'ph-camera',
++        subtitle:
++          'Tome una foto a un papel: PDF-IA encuentra la hoja, la endereza y le entrega un PDF nítido.',
++      },
+       {
+         href: import.meta.env.BASE_URL + 'edit-pdf-text.html',
+         name: 'Edit PDF Text',
+@@ -739,13 +746,6 @@ const baseCategories = [
+         icon: 'ph-ruler',
+         subtitle: 'Analyze page size, orientation, and units.',
+       },
+-      {
+-        href: import.meta.env.BASE_URL + 'remove-restrictions.html',
+-        name: 'Remove Restrictions',
+-        icon: 'ph-link-break',
+-        subtitle:
+-          'Remove password protection and security restrictions associated with digitally signed PDF files.',
+-      },
+       {
+         href: import.meta.env.BASE_URL + 'repair-pdf.html',
+         name: 'Repair PDF',
+diff --git a/src/js/i18n/i18n.ts b/src/js/i18n/i18n.ts
+index 1ee31a2..65fe9d7 100644
+--- a/src/js/i18n/i18n.ts
++++ b/src/js/i18n/i18n.ts
+@@ -4,6 +4,9 @@ import { setStoredItem } from '../utils/safe-storage.js';
+ import { fillPlaceholders } from './placeholders.js';
+ import enCommon from '../../../public/locales/en/common.json';
+ import enTools from '../../../public/locales/en/tools.json';
++import esCommon from '../../../public/locales/es/common.json';
++import esTools from '../../../public/locales/es/tools.json';
++import esUi from '../../../public/locales/es/ui.json';
+ 
+ // Supported languages
+ export const supportedLanguages = [
+@@ -89,7 +92,8 @@ export const getLanguageFromUrl = (): SupportedLanguage => {
+     return langMatch[1] as SupportedLanguage;
+   }
+ 
+-  return 'en';
++  // PDF-IA: español por defecto
++  return 'es';
+ };
+ 
+ export const LANGUAGE_CHOICE_KEY = 'bentopdf-language';
+@@ -113,6 +117,11 @@ const runInit = async (): Promise<typeof i18next> => {
+         tools: enTools,
+         ui: {},
+       },
++      es: {
++        common: esCommon,
++        tools: esTools,
++        ui: esUi,
++      },
+     },
+     backend: {
+       loadPath: `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}locales/{{lng}}/{{ns}}.json`,
+@@ -290,6 +299,8 @@ export const applyTranslations = (): void => {
+ export const rewriteLinks = (): void => {
+   const currentLang = getLanguageFromUrl();
+   if (currentLang === 'en') return;
++  // PDF-IA: una sola versión en español, sin carpetas por idioma; los enlaces quedan como están
++  if (currentLang === 'es') return;
+ 
+   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+   const links = document.querySelectorAll('a[href]');
+diff --git a/src/js/language-redirect.js b/src/js/language-redirect.js
+index ac364e8..1dddbb2 100644
+--- a/src/js/language-redirect.js
++++ b/src/js/language-redirect.js
+@@ -1,4 +1,5 @@
+ (function () {
++  return; // PDF-IA: sin redirección de idioma (siempre español)
+   var script = document.currentScript;
+   if (!script) return;
+   var base = (script.getAttribute('data-base') || '/').replace(/\/?$/, '/');
+diff --git a/src/js/logic/add-stamps.ts b/src/js/logic/add-stamps.ts
+index 20a747f..98e1a48 100644
+--- a/src/js/logic/add-stamps.ts
++++ b/src/js/logic/add-stamps.ts
+@@ -186,7 +186,7 @@ async function loadPdfInViewer(file: File) {
+ 
+   const viewerUrl = new URL(
+     import.meta.env.BASE_URL + 'pdfjs-annotation-viewer/web/viewer.html',
+-    window.location.origin
++    window.location.href
+   );
+   const stampUserName = usernameInput?.value?.trim() || '';
+   // ae_username is the hash parameter used by pdfjs-annotation-extension to set the username
+diff --git a/src/js/logic/form-filler-page.ts b/src/js/logic/form-filler-page.ts
+index 7a62f26..d1f9250 100644
+--- a/src/js/logic/form-filler-page.ts
++++ b/src/js/logic/form-filler-page.ts
+@@ -201,7 +201,7 @@ async function setupFormViewer() {
+     const blobUrl = URL.createObjectURL(blob);
+ 
+     viewerIframe = document.createElement('iframe');
+-    viewerIframe.src = `${import.meta.env.BASE_URL}pdfjs-viewer/viewer.html?file=${encodeURIComponent(blobUrl)}`;
++    viewerIframe.src = `${new URL(import.meta.env.BASE_URL + 'pdfjs-viewer/viewer.html', location.href).href}?file=${encodeURIComponent(blobUrl)}`;
+     viewerIframe.style.width = '100%';
+     viewerIframe.style.height = '100%';
+     viewerIframe.style.border = 'none';
+diff --git a/src/js/logic/image-to-pdf-page.ts b/src/js/logic/image-to-pdf-page.ts
+index da8227c..3d6e0ee 100644
+--- a/src/js/logic/image-to-pdf-page.ts
++++ b/src/js/logic/image-to-pdf-page.ts
+@@ -1,3 +1,4 @@
++import { imagenesAPdf } from '../pdfia/imagenes-pdf.js';
+ import { createIcons, icons } from 'lucide';
+ import { showAlert, showLoader, hideLoader } from '@/js/ui.js';
+ import { downloadFile, formatBytes } from '@/js/utils/helpers.js';
+@@ -210,10 +211,9 @@ async function convertToPdf() {
+     }
+ 
+     showLoader('Loading engine...');
+-    const mupdf = await ensurePyMuPDF();
+ 
+     showLoader('Converting images to PDF...');
+-    const pdfBlob = await mupdf.imagesToPdf(processedFiles);
++    const pdfBlob = await imagenesAPdf(processedFiles);
+ 
+     downloadFile(pdfBlob, 'images_to_pdf.pdf');
+ 
+diff --git a/src/js/logic/jpg-to-pdf-page.ts b/src/js/logic/jpg-to-pdf-page.ts
+index 49f3adb..7b4923c 100644
+--- a/src/js/logic/jpg-to-pdf-page.ts
++++ b/src/js/logic/jpg-to-pdf-page.ts
+@@ -1,3 +1,4 @@
++import { imagenesAPdf } from '../pdfia/imagenes-pdf.js';
+ import { createIcons, icons } from 'lucide';
+ import { showAlert, showLoader, hideLoader } from '../ui.js';
+ import { downloadFile, formatBytes } from '../utils/helpers.js';
+@@ -199,7 +200,6 @@ async function convertToPdf() {
+   showLoader('Loading engine...');
+ 
+   try {
+-    const mupdf = await ensurePyMuPDF();
+ 
+     showLoader('Converting images to PDF...');
+     const quality = getSelectedQuality();
+@@ -208,7 +208,7 @@ async function convertToPdf() {
+       compressedFiles.push(await compressImageFile(file, quality));
+     }
+ 
+-    const pdfBlob = await mupdf.imagesToPdf(compressedFiles);
++    const pdfBlob = await imagenesAPdf(compressedFiles);
+ 
+     downloadFile(pdfBlob, 'from_jpgs.pdf');
+ 
+diff --git a/src/js/logic/ocr-pdf-page.ts b/src/js/logic/ocr-pdf-page.ts
+index dfafdf0..0a83466 100644
+--- a/src/js/logic/ocr-pdf-page.ts
++++ b/src/js/logic/ocr-pdf-page.ts
+@@ -73,7 +73,7 @@ function resetState() {
+     '.lang-checkbox'
+   ) as NodeListOf<HTMLInputElement>;
+   langCheckboxes.forEach(function (cb) {
+-    cb.checked = false;
++    cb.checked = cb.value === 'spa';
+   });
+ 
+   const selectedLangsDisplay = document.getElementById(
+@@ -389,6 +389,17 @@ onPageReady(async function () {
+     });
+   }
+ 
++  // PDF-IA: español marcado por defecto
++  if (langList) {
++    const spa = langList.querySelector(
++      '.lang-checkbox[value="spa"]'
++    ) as HTMLInputElement | null;
++    if (spa && !spa.checked) {
++      spa.checked = true;
++      langList.dispatchEvent(new Event('change', { bubbles: true }));
++    }
++  }
++
+   // Whitelist preset
+   if (presetSelect && whitelistInput) {
+     presetSelect.addEventListener('change', function () {
+diff --git a/src/js/logic/sign-pdf-page.ts b/src/js/logic/sign-pdf-page.ts
+index 9d0e1ee..1c444d8 100644
+--- a/src/js/logic/sign-pdf-page.ts
++++ b/src/js/logic/sign-pdf-page.ts
+@@ -206,7 +206,7 @@ async function setupSignTool() {
+ 
+   const viewerUrl = new URL(
+     `${import.meta.env.BASE_URL}pdfjs-viewer/viewer.html`,
+-    window.location.origin
++    window.location.href
+   );
+   const query = new URLSearchParams({ file: signState.blobUrl });
+   iframe.src = `${viewerUrl.toString()}?${query.toString()}`;
+@@ -314,14 +314,22 @@ async function applyAndSaveSignatures() {
+       const blob = new Blob([new Uint8Array(flattenedPdfBytes)], {
+         type: 'application/pdf',
+       });
+-      downloadFile(blob, signState.file?.name || 'document.pdf');
++      downloadFile(blob, nombreFirmado(signState.file?.name));
+ 
+       hideLoader();
+       showAlert('Success', 'Signed PDF saved successfully!', 'success', () => {
+         resetState();
+       });
+     } else {
+-      app.eventBus?.dispatch('download', { source: app });
++      // PDF-IA: se guarda con la descarga de la app (también funciona dentro de Claude y cuenta en el plan)
++      const rawBytes = await app.pdfDocument.saveDocument(
++        app.pdfDocument.annotationStorage
++      );
++      const blobNoFijo = new Blob([new Uint8Array(rawBytes)], {
++        type: 'application/pdf',
++      });
++      downloadFile(blobNoFijo, nombreFirmado(signState.file?.name));
++      hideLoader();
+       showAlert(
+         'Success',
+         'Signed PDF downloaded successfully!',
+@@ -383,3 +391,8 @@ function cleanup() {
+     signState.blobUrl = null;
+   }
+ }
++
++function nombreFirmado(n?: string): string {
++  const base = (n || 'documento.pdf').replace(/\.pdf$/i, '');
++  return base + '-firmado.pdf';
++}
+diff --git a/src/js/main.ts b/src/js/main.ts
+index 7ca7c0b..5248de8 100644
+--- a/src/js/main.ts
++++ b/src/js/main.ts
+@@ -1,3 +1,4 @@
++import './pdfia/pdfia';
+ import './utils/map-upsert-polyfill.js';
+ import './utils/setup-pdf-worker.js';
+ import { categories } from './config/tools.js';
+diff --git a/src/js/utils/font-loader.ts b/src/js/utils/font-loader.ts
+index 6d3fd1a..71c5d45 100644
+--- a/src/js/utils/font-loader.ts
++++ b/src/js/utils/font-loader.ts
+@@ -1,3 +1,4 @@
++import { rutaApp } from '../pdfia/ruta.js';
+ import {
+   getFontAssetFileName,
+   getFontUrlForFamily,
+@@ -20,7 +21,7 @@ function getDefaultFontEnv(): OcrFontEnv {
+ }
+ 
+ function normalizeFontBaseUrl(url?: string): string | undefined {
+-  const trimmed = url?.trim();
++  const trimmed = rutaApp(url?.trim());
+ 
+   if (!trimmed) {
+     return undefined;
+diff --git a/src/js/utils/ghostscript-loader.ts b/src/js/utils/ghostscript-loader.ts
+index 45c62d5..197e67f 100644
+--- a/src/js/utils/ghostscript-loader.ts
++++ b/src/js/utils/ghostscript-loader.ts
+@@ -110,7 +110,7 @@ export async function convertToPdfA(
+ 
+   try {
+     const iccFileName = 'sRGB_IEC61966-2-1_no_black_scaling.icc';
+-    const iccUrl = `${import.meta.env.BASE_URL}${iccFileName}`;
++    const iccUrl = new URL(`${import.meta.env.BASE_URL}${iccFileName}`, globalThis.location?.href).href;
+     const response = await fetch(iccUrl);
+ 
+     if (!response.ok) {
+diff --git a/src/js/utils/helpers.ts b/src/js/utils/helpers.ts
+index fb421a4..6cc019e 100644
+--- a/src/js/utils/helpers.ts
++++ b/src/js/utils/helpers.ts
+@@ -173,7 +173,7 @@ export async function initializeQpdf(): Promise<QpdfInstanceExtended> {
+   showLoader('Initializing PDF engine...');
+   try {
+     qpdfInstance = (await createModule({
+-      locateFile: () => import.meta.env.BASE_URL + 'qpdf.wasm',
++      locateFile: () => new URL(import.meta.env.BASE_URL + 'qpdf.wasm', globalThis.location?.href).href,
+     })) as unknown as QpdfInstanceExtended;
+   } catch (error) {
+     console.error('Failed to initialize qpdf-wasm:', error);
+@@ -287,7 +287,7 @@ export function getPDFDocument(
+ 
+   return pdfjsLib.getDocument({
+     ...params,
+-    wasmUrl: import.meta.env.BASE_URL + 'pdfjs-viewer/wasm/',
++    wasmUrl: new URL(import.meta.env.BASE_URL + 'pdfjs-viewer/wasm/', globalThis.location?.href).href,
+   });
+ }
+ 
+diff --git a/src/js/utils/libreoffice-loader.ts b/src/js/utils/libreoffice-loader.ts
+index e6bfbf4..b3bbeb5 100644
+--- a/src/js/utils/libreoffice-loader.ts
++++ b/src/js/utils/libreoffice-loader.ts
+@@ -10,7 +10,10 @@ import type { InputFormat } from '@matbee/libreoffice-converter/browser';
+ 
+ import { trText } from '../i18n/i18n.js';
+ 
+-const LIBREOFFICE_LOCAL_PATH = import.meta.env.BASE_URL + 'libreoffice-wasm/';
++const LIBREOFFICE_LOCAL_PATH = new URL(
++  import.meta.env.BASE_URL + 'libreoffice-wasm/',
++  globalThis.location?.href
++).href;
+ 
+ export interface LoadProgress {
+   phase: 'loading' | 'initializing' | 'converting' | 'complete' | 'ready';
+diff --git a/src/js/utils/markdown-editor.ts b/src/js/utils/markdown-editor.ts
+index 89006c3..0a87515 100644
+--- a/src/js/utils/markdown-editor.ts
++++ b/src/js/utils/markdown-editor.ts
+@@ -107,215 +107,30 @@ function escapedMath(state: StateInline, silent: boolean): boolean {
+   return false;
+ }
+ 
+-const DEFAULT_MARKDOWN = `# Welcome to BentoPDF Markdown Editor
++const DEFAULT_MARKDOWN = `# Editor de texto a PDF de PDF-IA
+ 
+-This is a **live preview** markdown editor with full plugin support.
++Escriba a la izquierda y vea el resultado a la derecha. Cuando termine, pulse **Descargar** para obtener su PDF.
+ 
+-\${toc}
++## Formato básico
+ 
+-## Basic Formatting
++- **Negrita** y *cursiva*
++- ~~Texto tachado~~
++- ==Texto resaltado==
++- [Enlaces](https://skynetgenesis.com)
+ 
+-- **Bold** and *italic* text
+-- ~~Strikethrough~~ text
+-- [Links](https://bentopdf.com)
+-- ==Highlighted text== using mark
+-- ++Inserted text++ using ins
+-- H~2~O for subscript
+-- E=mc^2^ for superscript
++## Lista de tareas
+ 
+-## Task Lists
++- [x] Tarea terminada
++- [ ] Tarea pendiente
+ 
+-- [x] Completed task
+-- [x] Another done item
+-- [ ] Pending task
+-- [ ] Future work
++## Tablas
+ 
+-## Emoji Support :rocket:
++| Concepto | Cantidad | Valor |
++|----------|:--------:|------:|
++| Consulta | 1 | $50.000 |
++| Control | 2 | $60.000 |
+ 
+-Use emoji shortcodes: :smile: :heart: :thumbsup: :star: :fire:
+-
+-## Code with Syntax Highlighting
+-
+-\`\`\`javascript
+-function greet(name) {
+-  console.log(\`Hello, \${name}!\`);
+-  return { message: 'Welcome!' };
+-}
+-\`\`\`
+-
+-\`\`\`python
+-def fibonacci(n):
+-    if n <= 1:
+-        return n
+-    return fibonacci(n-1) + fibonacci(n-2)
+-\`\`\`
+-
+-## Tables
+-
+-| Feature | Supported | Notes |
+-|---------|:---------:|-------|
+-| Headers | ✓ | Multiple levels |
+-| Lists | ✓ | Ordered & unordered |
+-| Code | ✓ | With highlighting |
+-| Tables | ✓ | With alignment |
+-| Emoji | ✓ | :white_check_mark: |
+-| Mermaid | ✓ | Diagrams! |
+-| Math | ✓ | LaTeX via KaTeX |
+-
+-## Math
+-
+-Inline math with dollar signs like $E = mc^2$, or with brackets like \\(a^2 + b^2 = c^2\\).
+-
+-Display math with double dollar signs:
+-
+-$$
+-\\int_0^\\infty e^{-x^2}\\,dx = \\frac{\\sqrt{\\pi}}{2}
+-$$
+-
+-Or with square brackets:
+-
+-\\[
+-x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}
+-\\]
+-
+-Or in a math code block:
+-
+-\`\`\`math
+-\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}
+-\\begin{pmatrix} x \\\\ y \\end{pmatrix}
+-=
+-\\begin{pmatrix} ax + by \\\\ cx + dy \\end{pmatrix}
+-\`\`\`
+-
+-## Mermaid Diagrams
+-
+-### Flowchart
+-
+-\`\`\`mermaid
+-graph TD
+-    A[Start] --> B{Decision}
+-    B -->|Yes| C[OK]
+-    B -->|No| D[Cancel]
+-\`\`\`
+-
+-### Sequence Diagram
+-
+-\`\`\`mermaid
+-sequenceDiagram
+-    participant User
+-    participant BentoPDF
+-    participant Server
+-    User->>BentoPDF: Upload PDF
+-    BentoPDF->>BentoPDF: Process locally
+-    BentoPDF-->>User: Download result
+-    Note over BentoPDF: No server needed!
+-\`\`\`
+-
+-### Pie Chart
+-
+-\`\`\`mermaid
+-pie title PDF Tools Usage
+-    "Merge" : 35
+-    "Compress" : 25
+-    "Convert" : 20
+-    "Edit" : 15
+-    "Other" : 5
+-\`\`\`
+-
+-### Class Diagram
+-
+-\`\`\`mermaid
+-classDiagram
+-    class PDFDocument {
+-        +String title
+-        +int pageCount
+-        +merge()
+-        +split()
+-        +compress()
+-    }
+-    class Page {
+-        +int number
+-        +rotate()
+-        +crop()
+-    }
+-    PDFDocument "1" --> "*" Page
+-\`\`\`
+-
+-### Gantt Chart
+-
+-\`\`\`mermaid
+-gantt
+-    title Project Timeline
+-    dateFormat YYYY-MM-DD
+-    section Planning
+-        Research      :a1, 2024-01-01, 7d
+-        Design        :a2, after a1, 5d
+-    section Development
+-        Implementation :a3, after a2, 14d
+-        Testing       :a4, after a3, 7d
+-\`\`\`
+-
+-### Entity Relationship
+-
+-\`\`\`mermaid
+-erDiagram
+-    USER ||--o{ DOCUMENT : uploads
+-    DOCUMENT ||--|{ PAGE : contains
+-    DOCUMENT {
+-        string id
+-        string name
+-        date created
+-    }
+-    PAGE {
+-        int number
+-        string content
+-    }
+-\`\`\`
+-
+-### Mindmap
+-
+-\`\`\`mermaid
+-mindmap
+-    root((BentoPDF))
+-        Convert
+-            Word to PDF
+-            Excel to PDF
+-            Image to PDF
+-        Edit
+-            Merge
+-            Split
+-            Compress
+-        Secure
+-            Encrypt
+-            Sign
+-            Watermark
+-\`\`\`
+-
+-## Footnotes
+-
+-Here's a sentence with a footnote[^1].
+-
+-## Definition Lists
+-
+-Term 1
+-:   Definition for term 1
+-
+-Term 2
+-:   Definition for term 2
+-:   Another definition for term 2
+-
+-## Abbreviations
+-
+-The HTML specification is maintained by the W3C.
+-
+-*[HTML]: Hyper Text Markup Language
+-*[W3C]: World Wide Web Consortium
+-
+----
+-
+-Start editing to see the magic happen!
+-
+-[^1]: This is the footnote content.
++> Hecho con PDF-IA · SkyNet Genesis · contacto@skynetgenesis.com · WhatsApp 304 437 5758
+ `;
+ 
+ export class MarkdownEditor {
+diff --git a/src/js/utils/tesseract-runtime.ts b/src/js/utils/tesseract-runtime.ts
+index 3970d4d..1b2e0d4 100644
+--- a/src/js/utils/tesseract-runtime.ts
++++ b/src/js/utils/tesseract-runtime.ts
+@@ -1,3 +1,4 @@
++import { rutaApp } from '../pdfia/ruta.js';
+ import Tesseract from 'tesseract.js';
+ import {
+   assertTesseractLanguagesAvailable,
+@@ -38,13 +39,13 @@ function getDefaultTesseractAssetEnv(): TesseractAssetEnv {
+ }
+ 
+ function normalizeDirectoryUrl(url?: string): string | undefined {
+-  const trimmed = url?.trim();
++  const trimmed = rutaApp(url?.trim());
+   if (!trimmed) return undefined;
+   return trimmed.replace(/\/+$/, '');
+ }
+ 
+ function normalizeFileUrl(url?: string): string | undefined {
+-  const trimmed = url?.trim();
++  const trimmed = rutaApp(url?.trim());
+   if (!trimmed) return undefined;
+   return trimmed.replace(/\/+$/, '');
+ }
+diff --git a/src/js/utils/wasm-provider.ts b/src/js/utils/wasm-provider.ts
+index c99bed2..33ac7e8 100644
+--- a/src/js/utils/wasm-provider.ts
++++ b/src/js/utils/wasm-provider.ts
+@@ -1,3 +1,4 @@
++import { rutaApp } from '../pdfia/ruta.js';
+ import { trHtml, trText } from '../i18n/i18n.js';
+ export type WasmPackage = 'pymupdf' | 'ghostscript' | 'cpdf';
+ 
+@@ -16,6 +17,8 @@ const CDN_DEFAULTS: Record<WasmPackage, string> = {
+ };
+ 
+ function envOrDefault(envVar: string | undefined, fallback: string): string {
++  // PDF-IA: los motores se sirven desde la misma app (rutas relativas → absolutas)
++  if (envVar && envVar.startsWith('/')) return rutaApp(envVar) as string;
+   return envVar || fallback;
+ }
+ 
+diff --git a/src/pages/sign-pdf.html b/src/pages/sign-pdf.html
+index c067109..3a20a26 100644
+--- a/src/pages/sign-pdf.html
++++ b/src/pages/sign-pdf.html
+@@ -179,6 +179,7 @@
+             <input
+               type="checkbox"
+               id="flatten-signature-toggle"
++              checked
+               class="w-4 h-4 rounded text-indigo-600 bg-gray-700 border-gray-600 focus:ring-indigo-500"
+             />
+             Flatten PDF (use the Save button below)

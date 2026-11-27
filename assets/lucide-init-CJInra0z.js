@@ -1,0 +1,1 @@
+import{n as e,t}from"./style-6N_wHEXe.js";document.addEventListener(`DOMContentLoaded`,()=>{t({icons:e})});

@@ -1,0 +1,1 @@
+export{y as default}from"./embedpdf-BU1QkaWR-Aej9lJ6h.js";
