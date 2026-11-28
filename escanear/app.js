@@ -4,9 +4,11 @@
 'use strict';
 
 /* ================= CONFIGURACIÓN ================= */
+// Dentro de la app de Google Play la compra se hace con la facturación de Google (en la página principal)
+const PLAY = (() => { try { if (document.referrer.indexOf('android-app://com.skynetgenesis.pdfia') === 0) sessionStorage.setItem('pdfia.play', '1'); return sessionStorage.getItem('pdfia.play') === '1'; } catch (e) { return false; } })();
 const CFG = {
   version: '1.0.1',
-  precio: 9900,                       // pago único, en pesos
+  precio: PLAY ? 11400 : 9900,        // pago único, en pesos (Google Play: +15 %)
   gratis: 3,                          // documentos gratis antes de pedir la compra
   plan: 'pdf-ia:licencia',        // plan del firmador central de Bold
   firmador: 'https://skynetgenesis.com/bold-firma.php',
@@ -728,6 +730,7 @@ function dispositivo() { let d = lsPdf.get('dispositivo'); if (!d) { d = 'pdf' +
 $('#chipEstado').onclick = () => abrirPlan();
 function abrirPlan(motivo) {
   const lic = licencia(); const c = $('#cajaPlan');
+  if (PLAY && !lic) { location.href = '../index.html#comprar'; return; }
   if (lic) {
     c.innerHTML = `<h2 id="tituloPlan" style="font-size:26px;color:var(--azul)">Versión completa activa ✓</h2>
       <p class="ayuda">Puede crear documentos sin límite en este celular.</p>
