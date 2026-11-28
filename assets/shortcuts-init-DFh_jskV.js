@@ -1,0 +1,1 @@
+import{a as e}from"./main-BIwgass8.js";function t(){e.init(),console.log(`Global shortcuts initialized`)}export{t};
