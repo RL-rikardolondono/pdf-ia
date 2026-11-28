@@ -1,1 +1,0 @@
-import{a as e}from"./main-BngDoN8p.js";function t(){e.init(),console.log(`Global shortcuts initialized`)}export{t};
