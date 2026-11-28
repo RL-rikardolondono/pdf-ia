@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.skynetgenesis.pdfia",
+        "sha256_cert_fingerprints": ["0C:B8:38:DC:12:EB:F2:54:F4:1B:55:44:C1:B5:C0:53:27:95:01:9A:8D:C8:29:62:02:36:30:BF:18:6C:46:BD"]
+      }
+    }]
