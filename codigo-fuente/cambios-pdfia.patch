@@ -2208,6 +2208,19 @@ index 7ca3ec9..6130182 100644
    const isCDN = trustedCdnOrigins.has(url.origin);
    const isLocal = url.origin === location.origin;
  
+diff --git a/simple-index.html b/simple-index.html
+index ae81b2f..53e9f44 100644
+--- a/simple-index.html
++++ b/simple-index.html
+@@ -41,6 +41,8 @@
+       href="/images/apple-touch-icon.png"
+     />
+     <link rel="icon" href="/favicon.ico" sizes="32x32" />
++    <link rel="manifest" href="/site.webmanifest" />
++    <meta name="theme-color" content="#0B4F8A" />
+ 
+     <link href="src/css/styles.css" rel="stylesheet" />
+     <link href="src/css/landing.css" rel="stylesheet" />
 diff --git a/src/css/edit-pdf-text.css b/src/css/edit-pdf-text.css
 index ff337ab..4b15a64 100644
 --- a/src/css/edit-pdf-text.css
